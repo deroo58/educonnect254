@@ -707,3 +707,55 @@ footer {
     height: 400px;
     border: none;
 }
+
+/* ========== MOBILE RESPONSIVENESS ========== */
+@media (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        left: 15px;
+        top: 15px;
+        z-index: 1000;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 90%;
+    }
+}

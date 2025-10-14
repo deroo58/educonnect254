@@ -41,7 +41,7 @@
                     <button class="login-btn">Login / Sign Up</button>
                 </div>
             </div>
-            <img src="images/hero-banner.jpg" alt="Students learning" class="hero-image" />
+            <img src="images/learning-banner.avif" alt="Students learning" class="hero-image" />
         </section>
 
         <!-- Features Section -->
@@ -49,6 +49,7 @@
             <h2>Why Choose EduConnect?</h2>
             <div class="feature-grid">
                 <div class="feature-card">
+                    <img src="images/student learning.jpg" alt="Study group">
                     <h3>📘 Quality Learning</h3>
                     <p>Access detailed notes, tutorials, and exercises curated by top educators.</p>
                 </div>
@@ -117,6 +118,16 @@
             if (e.target === modal) modal.style.display = 'none';
         });
     </script>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const sidebarElement = document.querySelector('.sidebar');
+
+        hamburger.addEventListener('click', () => {
+            sidebarElement.classList.toggle('active');
+        });
+    </script>
+
 </body>
 
 </html>
