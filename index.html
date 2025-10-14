@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduConnect</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <button class="toggle-btn">☰</button>
+        <div>
+            <div class="logo">EduConnect</div>
+            <nav class="nav-links">
+                <a href="home.html"><span>🏠</span> <span>Home</span></a>
+                <a href="about.html"><span>ℹ️</span> <span>About</span></a>
+                <a href="index.html"><span>📚</span> <span>Subjects</span></a>
+                <a href="contact.html"><span>📞</span> <span>Contact</span></a>
+            </nav>
+
+        </div>
+        <footer>© 2025 EduConnect. All rights reserved.</footer>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <header>
+            <h1>EduConnect</h1>
+            <div class="search-bar">
+                <input type="text" class="search-box" id="searchInput" placeholder="Search subjects, topics, or lessons..." />
+            </div>
+        </header>
+        
+        <section class="intro">
+            <h1>Empowering Learners Everywhere 🌍</h1>
+            <p>Access quality education anytime, anywhere. Start your journey with our free learning resources.</p>
+        </section>
+
+        <section class="subjects" id="subjects">
+            <!-- Mathematics -->
+            <div class="card">
+                <img src="images/math.jpeg" alt="Mathematics">
+                <div class="card-content">
+                    <h3>Mathematics</h3>
+                    <p>Explore numbers, equations, and real-world problem-solving techniques.</p>
+                    <a href="subjects/math.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+
+            <!-- Science -->
+            <div class="card">
+                <img src="images/Albert-Einstein.jpg" alt="Science">
+                <div class="card-content">
+                    <h3>Science</h3>
+                    <p>Discover how the universe works — from atoms to galaxies.</p>
+                    <a href="subjects/science.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+
+            <!-- History -->
+            <div class="card">
+                <img src="images/history.avif" alt="History">
+                <div class="card-content">
+                    <h3>History</h3>
+                    <p>Learn about the events and people that shaped our world today.</p>
+                    <a href="subjects/history.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+
+            <!-- English -->
+            <div class="card">
+                <img src="images/english.jpg" alt="English">
+                <div class="card-content">
+                    <h3>English</h3>
+                    <p>Improve your language skills with interactive lessons and reading materials.</p>
+                    <a href="subjects/english.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+
+            <!-- Computer -->
+            <div class="card">
+                <img src="images/commputer.jpeg" alt="Computer">
+                <div class="card-content">
+                    <h3>Computer</h3>
+                    <p>Learn about coding, technology, and the digital world that powers our future.</p>
+                    <a href="subjects/computer.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">⚠️ No subjects found. Try another search.</div>
+    </main>
+
+    <!-- JavaScript for live search -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', () => {
+            const searchText = searchInput.value.toLowerCase();
+            let anyVisible = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(searchText) || desc.includes(searchText)) {
+                    card.style.display = 'block';
+                    anyVisible = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show or hide the "no results" message
+            noResults.style.display = anyVisible ? 'none' : 'block';
+        });
+    </script>
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('main');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('collapsed');
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics | EduConnect</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0e0e0e;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background: url('../images/math.jpeg') center/cover no-repeat;
+
+            padding: 100px 20px;
+            color: #4f9eff;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        section {
+            padding: 2rem 1.5rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .lessons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .lesson-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(79, 158, 255, 0.3);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #4f9eff;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #3577d1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>Mathematics</header>
+    <section>
+        <p>Master problem-solving through engaging lessons and real-world examples.</p>
+        <div class="lessons">
+            <div class="lesson-card">
+                <h3>📘 Algebra Basics</h3>
+                <p>Learn equations, variables, and expressions that form math’s foundation.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>📐 Geometry</h3>
+                <p>Understand shapes, angles, and spatial reasoning.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>📊 Statistics</h3>
+                <p>Collect, analyze, and interpret data in real-world contexts.</p>
+            </div>
+        </div>
+        <a href="../index.html" class="back-btn">⬅ Back to Home</a>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | EduConnect</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <button class="toggle-btn">☰</button>
+        <div class="logo">EduConnect</div>
+        <nav class="nav-links">
+            <a href="home.html">🏠 Home</a>
+            <a href="about.html">ℹ️ About</a>
+            <a href="index.html">📚 Subjects</a>
+            <a href="contact.html" class="active">📞 Contact</a>
+        </nav>
+        <footer>© 2025 EduConnect</footer>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <header class="top-bar">
+            <input type="text" placeholder="Search..." class="search-bar" />
+        </header>
+
+        <!-- Contact Header -->
+        <section class="contact-header">
+            <h1>Contact <span>EduConnect</span></h1>
+            <p>We’d love to hear from you! Get in touch using the form below or reach us directly through our contacts.
+            </p>
+        </section>
+
+        <!-- Contact Details -->
+        <section class="contact-info">
+            <div class="contact-card">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:jderrick5588@gmail.com">jderrick5588@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+                <h3>📞 Phone</h3>
+                <p><a href="tel:+254798080139">0798 080 139</a></p>
+            </div>
+            <div class="contact-card">
+                <h3>📍 Location</h3>
+                <p>Kisumu, Kenya</p>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form-section">
+            <h2>Send Us a Message 💬</h2>
+            <form class="contact-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Type your message..." required></textarea>
+                </div>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Google Map -->
+        <section class="map-section">
+            <h2>Find Us on the Map 🗺️</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7801662931567!2d34.7617!3d-0.0917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aa97c2ad01d3b%3A0x8a2762edb21c274a!2sKisumu%2C%20Kenya!5e0!3m2!1sen!2ske!4v1697036600000!5m2!1sen!2ske"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Sidebar toggle
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('main');
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+
+</html>

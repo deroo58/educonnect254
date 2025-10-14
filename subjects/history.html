@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History | EduConnect</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0e0e0e;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background: url('https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_1.7777777777777777,w_1920,h_1080,g_auto/dpr_auto/f_auto/q_auto:eco/v1/History_Batch01_WorldWarI_03_HiRes_gemxod?_a=BAVAZGID0') center/cover no-repeat;
+            padding: 100px 20px;
+            color: #4f9eff;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        section {
+            padding: 2rem 1.5rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .lessons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .lesson-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(79, 158, 255, 0.3);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #4f9eff;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #3577d1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>History</header>
+    <section>
+        <p>Travel through time and learn about the civilizations, wars, and heroes that shaped the modern world.</p>
+        <div class="lessons">
+            <div class="lesson-card">
+                <h3>🏺 Ancient Civilizations</h3>
+                <p>Explore the rise of Egypt, Mesopotamia, and Greece.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>⚔️ World Wars</h3>
+                <p>Understand the causes and consequences of global conflicts.</p>
+            </div>
+            <div class="lesson-card">
+                <h3>🌍 Modern History</h3>
+                <p>Study key events that transformed nations and societies.</p>
+            </div>
+        </div>
+        <a href="../index.html" class="back-btn">⬅ Back to Home</a>
+    </section>
+</body>
+
+</html>

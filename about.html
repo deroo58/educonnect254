@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | EduConnect</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <button class="toggle-btn">☰</button>
+        <div class="logo">EduConnect</div>
+        <nav class="nav-links">
+            <a href="home.html">🏠 Home</a>
+            <a href="about.html" class="active">ℹ️ About</a>
+            <a href="index.html">📚 Subjects</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+        <footer>© 2025 EduConnect</footer>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <header class="top-bar">
+            <input type="text" placeholder="Search..." class="search-bar" />
+        </header>
+
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About <span>EduConnect</span> 🎓</h1>
+                <p>
+                    At EduConnect, we believe education should be accessible, engaging, and empowering.
+                    Our mission is to bridge the gap between learning and technology — one student at a time.
+                </p>
+            </div>
+            <img src="images/about-hero.jpg" alt="About EduConnect" class="about-hero-img" />
+        </section>
+
+        <!-- Mission, Vision, Values -->
+        <section class="mission-section">
+            <h2>Our Mission, Vision & Values</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To empower learners everywhere by providing free, high-quality educational resources through
+                        innovative technology.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>🌍 Our Vision</h3>
+                    <p>To become the most trusted global digital education platform that inspires lifelong learning and
+                        creativity.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>💎 Our Values</h3>
+                    <ul>
+                        <li>Commitment to learning</li>
+                        <li>Innovation and creativity</li>
+                        <li>Accessibility and inclusivity</li>
+                        <li>Community and collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Team -->
+        <section class="team-section">
+            <h2>Meet Our Team 👩‍💻👨‍💻</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/team1.jpg" alt="Founder" />
+                    <h3>Derrick Omondi</h3>
+                    <p>Founder & Lead Developer</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/team2.jpg" alt="Designer" />
+                    <h3>Roby Aloo</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/team3.jpg" alt="Tutor" />
+                    <h3>Lumumba</h3>
+                    <p>Learning Coordinator</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta">
+            <h2>Be Part of the EduConnect Journey!</h2>
+            <p>Join us in transforming education and empowering the next generation of learners.</p>
+            <a href="index.html" class="cta-btn">Start Learning</a>
+        </section>
+    </main>
+
+    <script>
+        // Sidebar toggle
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('main');
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+
+</html>
