@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | EduConnect</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="auth-body">
+    <!-- Loader -->
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+        <p>Checking authentication...</p>
+    </div>
+
+    <div class="auth-container">
+        <h2>Welcome Back 👋</h2>
+        <p>Login to your EduConnect account</p>
+
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+
+        <button id="login-btn">Login</button>
+        <p>Don’t have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
