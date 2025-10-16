@@ -6,21 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up | EduConnect</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 6rem auto;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.9rem;
+            background: #004aad;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0066cc;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+        }
+
+        #loader {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 45px;
+            height: 45px;
+            border: 4px solid #ddd;
+            border-top: 4px solid #004aad;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body class="auth-body">
     <!-- Loader -->
-    <div id="loader" class="loader-container">
+    <div id="loader">
         <div class="spinner"></div>
-        <p>Checking authentication...</p>
+        <p>Creating your account...</p>
     </div>
 
     <div class="auth-container">
         <h2>Create Your Account 🚀</h2>
         <p>Join EduConnect today</p>
 
+        <input type="text" id="signup-username" placeholder="Choose a unique username" required />
+        <p id="username-error" class="error"></p>
+
         <input type="email" id="signup-email" placeholder="Email" required />
         <input type="password" id="signup-password" placeholder="Password" required />
+
+        <select id="signup-role" required>
+            <option value="">Select Role</option>
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Admin">Admin</option>
+        </select>
 
         <button id="signup-btn">Sign Up</button>
         <p>Already have an account? <a href="login.html">Login</a></p>
@@ -29,6 +107,7 @@
     <!-- Firebase SDK -->
     <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js"></script>
     <script type="module" src="js/auth.js"></script>
 </body>
 

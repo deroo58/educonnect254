@@ -57,6 +57,10 @@ header {
     top: 0;
     left: 0;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+
     
 }
 
@@ -168,7 +172,7 @@ footer {
     text-align: center;
     padding: 15px;
     font-size: 0.9rem;
-    margin-top: 50px;
+    margin-top: 250px;
 }
 /* =============================
    Sidebar Toggle
@@ -202,7 +206,7 @@ footer {
 .sidebar.collapsed .nav-links a {
     text-align: center;
     font-size: 1.2rem;
-    padding: 14px 0;
+    padding: 40px ;
 }
 
 .sidebar.collapsed footer {
@@ -708,58 +712,6 @@ footer {
     border: none;
 }
 
-/* ========== MOBILE RESPONSIVENESS ========== */
-@media (max-width: 900px) {
-    .main-content {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    .sidebar {
-        position: fixed;
-        left: -250px;
-        top: 0;
-        height: 100%;
-        z-index: 999;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: block;
-        position: fixed;
-        left: 15px;
-        top: 15px;
-        z-index: 1000;
-    }
-
-    .topbar {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .search-bar {
-        width: 100%;
-    }
-
-    .hero-image {
-        height: 250px;
-    }
-
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-card {
-        width: 90%;
-    }
-}
-
 /* Center everything */
 .auth-body {
     background: linear-gradient(135deg, #2b5876, #4e4376);
@@ -866,5 +818,197 @@ footer {
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        width: 0;
+        left: 0;
+        height: 100%;
+        z-index: 1000;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: width 0.3s ease;
+    }
+
+    .sidebar.collapsed {
+        width: 250px;
+        /* Full width when toggled open on mobile */
+    }
+
+    main {
+        margin-left: 0;
+        /* Main content takes full width by default */
+        transition: margin-left 0.3s ease;
+    }
+
+    main.collapsed {
+        margin-left: 0;
+        /* Main content stays full width even when sidebar is open */
+        filter: blur(2px);
+        /* Optional: blur main content when sidebar opens for focus */
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+    }
+
+    /* Make nav links larger on mobile */
+    .nav-links a {
+        padding: 14px 20px;
+        font-size: 1.2rem;
+    }
+
+    /* Sidebar profile adjustments */
+    .sidebar-profile {
+        padding: 14px 20px;
+    }
+
+    #profile-dropdown {
+        padding-left: 20px;
+    }
+
+    /* Footer at bottom stays inside sidebar */
+    .sidebar footer {
+        margin-top: auto;
+    }
+}
+
+/* ---------- PROFILE PAGE ---------- */
+.profile-main {
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg-color, #f9f9f9);
+    min-height: 100vh;
+}
+
+.profile-card {
+    background: white;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 10px;
+    width: 0;
+    background: #007bff;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.edit-btn {
+    margin-top: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+/* 🔄 Loader Overlay */
+.loader-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+/* Loader text */
+.loader-container p {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeText 1s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeText {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ✨ Optional: smooth fade-out */
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }

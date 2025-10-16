@@ -6,7 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduConnect</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sidebar profile styles */
+        .sidebar-profile {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            cursor: pointer;
+        }
 
+        .sidebar-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .sidebar-profile span {
+            font-weight: bold;
+            color: #004aad;
+        }
+
+        /* Dropdown menu in sidebar */
+        #profile-dropdown {
+            display: none;
+            flex-direction: column;
+            margin-top: 5px;
+        }
+
+        #profile-dropdown button {
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 5px 0;
+            cursor: pointer;
+            color: #004aad;
+        }
+
+        /* Collapsed Sidebar */
+        .sidebar.collapsed {
+            width: 70px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+        .sidebar.collapsed .logo {
+            font-size: 0;
+        }
+
+        .sidebar.collapsed .nav-links a {
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 14px 0;
+        }
+
+        .sidebar.collapsed .sidebar-profile span {
+            display: none;
+        }
+
+        /* Fix footer at bottom */
+        .sidebar footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                background: #fff;
+                z-index: 1000;
+                overflow-y: auto;
+                transition: width 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar.collapsed {
+                width: 0;
+            }
+
+            .sidebar-profile span {
+                display: none;
+            }
+
+            .nav-links a span:last-child {
+                display: none;
+            }
+
+            main {
+                transition: filter 0.3s ease;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -15,18 +114,28 @@
         <button class="toggle-btn">☰</button>
         <div>
             <div class="logo">EduConnect</div>
+
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile" id="dropdownToggle">
+                <img id="sidebar-profile-pic" src="https://via.placeholder.com/50" alt="Profile Photo">
+                <span id="sidebar-username">User</span>
+            </div>
+            <div id="profile-dropdown">
+                <button onclick="window.location.href='profile.html'">View Profile</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+
             <nav class="nav-links">
                 <a href="home.html"><span>🏠</span> <span>Home</span></a>
-                <a href="about.html"><span>ℹ️</span> <span>About</span></a>
+                <a href="profile.html">👤 Profile</a>
                 <a href="index.html"><span>📚</span> <span>Subjects</span></a>
                 <a href="contact.html"><span>📞</span> <span>Contact</span></a>
+                <a href="about.html"><span>ℹ️</span> <span>About</span></a>
             </nav>
-
         </div>
         <footer>
-            <p><button id="logout-btn">Logout</button></p>
-
-            © 2025 EduConnect. All rights reserved.</footer>
+            © 2025 EduConnect. All rights reserved.
+        </footer>
     </aside>
 
     <!-- Main Content -->
@@ -34,17 +143,18 @@
         <header>
             <h1>EduConnect</h1>
             <div class="search-bar">
-                <input type="text" class="search-box" id="searchInput" placeholder="Search subjects, topics, or lessons..." />
+                <input type="text" class="search-box" id="searchInput"
+                    placeholder="Search subjects, topics, or lessons..." />
             </div>
         </header>
-        
+
         <section class="intro">
             <h1>Empowering Learners Everywhere 🌍</h1>
             <p>Access quality education anytime, anywhere. Start your journey with our free learning resources.</p>
         </section>
 
         <section class="subjects" id="subjects">
-            <!-- Mathematics -->
+            <!-- Subjects Cards -->
             <div class="card">
                 <img src="images/math.jpeg" alt="Mathematics">
                 <div class="card-content">
@@ -53,8 +163,6 @@
                     <a href="subjects/math.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
-
-            <!-- Science -->
             <div class="card">
                 <img src="images/Albert-Einstein.jpg" alt="Science">
                 <div class="card-content">
@@ -63,8 +171,6 @@
                     <a href="subjects/science.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
-
-            <!-- History -->
             <div class="card">
                 <img src="images/history.avif" alt="History">
                 <div class="card-content">
@@ -73,8 +179,6 @@
                     <a href="subjects/history.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
-
-            <!-- English -->
             <div class="card">
                 <img src="images/english.jpg" alt="English">
                 <div class="card-content">
@@ -83,8 +187,6 @@
                     <a href="subjects/english.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
-
-            <!-- Computer -->
             <div class="card">
                 <img src="images/commputer.jpeg" alt="Computer">
                 <div class="card-content">
@@ -95,12 +197,12 @@
             </div>
         </section>
 
-        <!-- No Results Message -->
         <div class="no-results" id="noResults">⚠️ No subjects found. Try another search.</div>
     </main>
 
-    <!-- JavaScript for live search -->
+    <!-- JavaScript -->
     <script>
+        // Live search
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.card');
         const noResults = document.getElementById('noResults');
@@ -121,11 +223,10 @@
                 }
             });
 
-            // Show or hide the "no results" message
             noResults.style.display = anyVisible ? 'none' : 'block';
         });
-    </script>
-    <script>
+
+        // Sidebar toggle
         const toggleBtn = document.querySelector('.toggle-btn');
         const sidebar = document.querySelector('.sidebar');
         const main = document.querySelector('main');
@@ -135,8 +236,66 @@
             main.classList.toggle('collapsed');
         });
     </script>
-    
-    <script type="module" src="js/protect.js"></script>
+
+    <!-- Firebase Sidebar Profile -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBwgRzr0A8qR2lzOlLP_B1mCiJ90IS2Nms",
+            authDomain: "educonnect-2b680.firebaseapp.com",
+            projectId: "educonnect-2b680",
+            storageBucket: "educonnect-2b680.appspot.com",
+            messagingSenderId: "438989414011",
+            appId: "1:438989414011:web:c21fe944e6da56094b0cde",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const sidebarPic = document.getElementById("sidebar-profile-pic");
+        const sidebarUsername = document.getElementById("sidebar-username");
+        const dropdownToggle = document.getElementById("dropdownToggle");
+        const dropdown = document.getElementById("profile-dropdown");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) return window.location.href = "login.html";
+
+            const userRef = doc(db, "users", user.uid);
+
+            // Listen for live updates
+            onSnapshot(userRef, (snap) => {
+                if (snap.exists()) {
+                    const data = snap.data();
+                    sidebarUsername.textContent = data.username || user.email;
+                    sidebarPic.src = data.photoURL || "https://via.placeholder.com/50";
+                }
+            });
+        });
+
+        // Toggle dropdown
+        dropdownToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        });
+
+        // Close dropdown if clicked outside
+        window.addEventListener("click", (e) => {
+            if (!dropdownToggle.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+
+        // Logout
+        logoutBtn.addEventListener("click", async () => {
+            await signOut(auth);
+            window.location.href = "login.html";
+        });
+    </script>
 
 </body>
 

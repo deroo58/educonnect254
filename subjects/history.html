@@ -93,20 +93,47 @@
         <p>Travel through time and learn about the civilizations, wars, and heroes that shaped the modern world.</p>
         <div class="lessons">
             <div class="lesson-card">
-                <h3>🏺 Ancient Civilizations</h3>
-                <p>Explore the rise of Egypt, Mesopotamia, and Greece.</p>
+                <h3>FORM I</h3>
             </div>
             <div class="lesson-card">
-                <h3>⚔️ World Wars</h3>
-                <p>Understand the causes and consequences of global conflicts.</p>
+                <h3>FORM II</h3>
             </div>
             <div class="lesson-card">
-                <h3>🌍 Modern History</h3>
-                <p>Study key events that transformed nations and societies.</p>
+                <h3>FORM III</h3>
+            </div>
+            <div class="lesson-card">
+                <h3>FORM IV</h3>
             </div>
         </div>
         <a href="../index.html" class="back-btn">⬅ Back to Home</a>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.lesson-card');
+            cards.forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    switch (index) {
+                        case 0:
+                            window.location.href = '../history-forms/hisform1.html';
+                            break;
+                        case 1:
+                            window.location.href = '../history-forms/hisform2.html';
+                            break;
+                        case 2:
+                            window.location.href = '../history-forms/hisform3.html';
+                            break;
+                        case 3:
+                            window.location.href = '../history-forms/hisform4.html';
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile | EduConnect</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+    <style>
+        body {
+            background: #f4f6fa;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 5rem auto;
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-container h2 {
+            color: #004aad;
+            margin-bottom: 10px;
+        }
+
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #004aad;
+            margin-bottom: 1rem;
+        }
+
+        .photo-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .photo-btns button {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #update-photo-btn {
+            background-color: #004aad;
+        }
+
+        #update-photo-btn:hover {
+            background-color: #0066cc;
+        }
+
+        #delete-photo-btn {
+            background-color: #f44336;
+        }
+
+        #delete-photo-btn:hover {
+            background-color: #e53935;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .profile-info label {
+            display: block;
+            font-weight: 600;
+            margin-top: 1rem;
+            color: #333;
+        }
+
+        .profile-info input,
+        .profile-info select {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 0.4rem;
+            font-size: 1rem;
+        }
+
+        .update-btn {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: #004aad;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .update-btn:hover {
+            background: #0066cc;
+        }
+
+        /* Cropper modal */
+        #cropper-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #cropper-container {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        #cropper-container img {
+            max-width: 100%;
+            max-height: 60vh;
+        }
+
+        #cropper-buttons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #cropper-buttons button {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #cropper-buttons #cropper-save {
+            background-color: #004aad;
+            color: #fff;
+        }
+
+        #cropper-buttons #cropper-cancel {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <h2>👤 My Profile</h2>
+
+        <img id="profile-pic" class="profile-photo" src="https://via.placeholder.com/130" alt="Profile Photo" />
+
+        <div class="photo-btns">
+            <button id="update-photo-btn">📸 Update Photo</button>
+            <button id="delete-photo-btn">🗑️ Delete Photo</button>
+        </div>
+
+        <input type="file" id="upload-photo" accept="image/*" style="display: none;" />
+
+        <div class="profile-info">
+            <label>Username:</label>
+            <input type="text" id="profile-username" />
+
+            <label>Email:</label>
+            <input type="text" id="profile-email" disabled />
+
+            <label>Role:</label>
+            <select id="profile-role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="parent">Parent</option>
+            </select>
+
+            <label>Member Since:</label>
+            <input type="text" id="profile-date" disabled />
+        </div>
+
+        <button class="update-btn" id="update-profile">💾 Update Profile</button>
+    </div>
+
+    <!-- Cropper Modal -->
+    <div id="cropper-modal">
+        <div id="cropper-container">
+            <img id="cropper-image" src="">
+            <div id="cropper-buttons">
+                <button id="cropper-save">Save</button>
+                <button id="cropper-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBwgRzr0A8qR2lzOlLP_B1mCiJ90IS2Nms",
+            authDomain: "educonnect-2b680.firebaseapp.com",
+            projectId: "educonnect-2b680",
+            storageBucket: "educonnect-2b680.appspot.com",
+            messagingSenderId: "438989414011",
+            appId: "1:438989414011:web:c21fe944e6da56094b0cde",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const usernameEl = document.getElementById("profile-username");
+        const roleEl = document.getElementById("profile-role");
+        const dateEl = document.getElementById("profile-date");
+        const emailEl = document.getElementById("profile-email");
+        const profilePicEl = document.getElementById("profile-pic");
+
+        const uploadPhoto = document.getElementById("upload-photo");
+        const updatePhotoBtn = document.getElementById("update-photo-btn");
+        const deletePhotoBtn = document.getElementById("delete-photo-btn");
+
+        const cropperModal = document.getElementById("cropper-modal");
+        const cropperImage = document.getElementById("cropper-image");
+        const cropperSave = document.getElementById("cropper-save");
+        const cropperCancel = document.getElementById("cropper-cancel");
+        let cropper = null;
+        let croppedBlob = null;
+        let originalPhoto = profilePicEl.src;
+
+        // Load user info
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) return window.location.href = "login.html";
+
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDoc(userRef);
+            if (userSnap.exists()) {
+                const data = userSnap.data();
+                usernameEl.value = data.username || "";
+                roleEl.value = data.role || "student";
+                emailEl.value = data.email || user.email;
+                dateEl.value = data.createdAt?.toDate().toLocaleDateString() || "N/A";
+                if (data.photoURL) {
+                    profilePicEl.src = data.photoURL;
+                    originalPhoto = data.photoURL;
+                }
+            }
+        });
+
+        // Open file picker
+        updatePhotoBtn.addEventListener("click", () => uploadPhoto.click());
+
+        // Delete photo
+        deletePhotoBtn.addEventListener("click", async () => {
+            if (!confirm("Are you sure you want to remove your profile photo?")) return;
+            const user = auth.currentUser;
+            if (!user) return alert("Please log in again.");
+
+            try {
+                profilePicEl.src = "https://via.placeholder.com/130";
+                await updateProfile(user, { photoURL: null });
+                await updateDoc(doc(db, "users", user.uid), { photoURL: null });
+                originalPhoto = profilePicEl.src;
+                alert("✅ Profile photo removed successfully!");
+            } catch (err) {
+                console.error(err);
+                alert("❌ " + err.message);
+            }
+        });
+
+        // File selected → open cropper
+        uploadPhoto.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                cropperImage.src = reader.result;
+                cropperModal.style.display = "flex";
+                cropper = new Cropper(cropperImage, {
+                    aspectRatio: 1,
+                    viewMode: 1,
+                    movable: true,
+                    zoomable: true
+                });
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Cancel cropping
+        cropperCancel.addEventListener("click", () => {
+            cropper.destroy();
+            cropper = null;
+            cropperModal.style.display = "none";
+            uploadPhoto.value = "";
+        });
+
+        // Save cropped photo
+        cropperSave.addEventListener("click", async () => {
+            if (!cropper) return;
+
+            cropper.getCroppedCanvas().toBlob(async (blob) => {
+                croppedBlob = blob;
+                profilePicEl.src = URL.createObjectURL(blob);
+                cropper.destroy();
+                cropper = null;
+                cropperModal.style.display = "none";
+            });
+        });
+
+        // Update profile button
+        document.getElementById("update-profile").addEventListener("click", async () => {
+            const user = auth.currentUser;
+            if (!user) return alert("Please log in again.");
+
+            try {
+                let photoURL = null;
+
+                // Upload cropped photo to Cloudinary
+                if (croppedBlob) {
+                    const formData = new FormData();
+                    formData.append("file", croppedBlob);
+                    formData.append("upload_preset", "educonnect_profile");
+
+                    const response = await fetch("https://api.cloudinary.com/v1_1/dopcgnxqu/image/upload", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    const data = await response.json();
+                    photoURL = data.secure_url;
+                    profilePicEl.src = photoURL;
+                    originalPhoto = photoURL;
+
+                    await updateProfile(user, { photoURL });
+                }
+
+                await updateDoc(doc(db, "users", user.uid), {
+                    username: usernameEl.value.trim(),
+                    role: roleEl.value,
+                    ...(photoURL && { photoURL }),
+                });
+
+                croppedBlob = null;
+                uploadPhoto.value = "";
+
+                alert("✅ Profile updated successfully!");
+            } catch (err) {
+                console.error(err);
+                alert("❌ " + err.message);
+            }
+        });
+    </script>
+</body>
+
+</html>
