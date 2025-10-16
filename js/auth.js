@@ -147,7 +147,7 @@ if (signupBtn) {
             localStorage.setItem("educonnectEmail", user.email);
 
             alert("🎉 Account created successfully!");
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
         } catch (err) {
             console.error("Signup error:", err);
             alert("❌ " + err.message);
@@ -188,7 +188,7 @@ if (loginBtn) {
             }
 
             alert("✅ Login successful!");
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
         } catch (err) {
             console.error("Login error:", err);
             alert("❌ " + err.message);

@@ -4,355 +4,111 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduConnect</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Sidebar base */
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-    
-        .sidebar .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 20px;
-            color: #004aad;
-            text-align: center;
-        }
-    
-        .sidebar .nav-links {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-    
-        .sidebar .nav-links a {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            color: #004aad;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-    
-        .sidebar .nav-links a span:first-child {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-    
-        .sidebar .nav-links a:hover {
-            background-color: #f0f4ff;
-        }
-    
-        /* Sidebar profile */
-        .sidebar .sidebar-profile {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            cursor: pointer;
-        }
-    
-        .sidebar .sidebar-profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-    
-        .sidebar .sidebar-profile span {
-            font-weight: bold;
-            color: #004aad;
-        }
-    
-        /* Collapsed Sidebar (for desktop) */
-        .sidebar.collapsed {
-            width: 70px;
-            overflow: hidden;
-        }
-    
-        .sidebar.collapsed .logo {
-            font-size: 0;
-        }
-    
-        .sidebar.collapsed .nav-links a {
-            justify-content: center;
-            font-size: 1.2rem;
-            padding: 14px 0;
-        }
-    
-        .sidebar.collapsed .nav-links a span:nth-child(2) {
-            display: none;
-        }
-    
-        /* Sidebar dropdown */
-        #profile-dropdown {
-            display: none;
-            flex-direction: column;
-            margin-top: 5px;
-        }
-    
-        #profile-dropdown button {
-            background: none;
-            border: none;
-            text-align: left;
-            padding: 5px 20px;
-            cursor: pointer;
-            color: #004aad;
-        }
-    
-        /* Footer always at bottom */
-        .sidebar footer {
-            margin-top: auto;
-            padding: 10px 20px;
-            font-size: 0.85rem;
-            color: #555;
-        }
-    
-        /* Mobile responsiveness — fixed version */
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                left: -250px;
-                /* Hidden by default on mobile */
-                width: 250px;
-                position: fixed;
-                top: 0;
-                height: 100%;
-                background-color: #fff;
-                transition: left 0.3s ease;
-                z-index: 2000;
-            }
-    
-            /* When toggled open */
-            .sidebar.active {
-                left: 0;
-            }
-    
-            /* Keep toggle button visible on top */
-            .toggle-btn {
-                display: block;
-                position: fixed;
-                top: 15px;
-                left: 15px;
-                z-index: 2100;
-                background: #004aad;
-                color: #fff;
-                border: none;
-                font-size: 1.5rem;
-                border-radius: 6px;
-                padding: 5px 10px;
-                cursor: pointer;
-            }
-    
-            main {
-                margin-left: 0;
-                transition: filter 0.3s ease;
-            }
-    
-            /* Optional: blur main content when sidebar is open */
-            main.blur {
-                filter: blur(2px);
-            }
-        }
-    </style>
-
+    <title>EduConnect | Home</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <!-- Sidebar -->
     <aside class="sidebar">
         <button class="toggle-btn">☰</button>
-        <div>
-            <div class="logo">EduConnect</div>
-
-            <!-- Sidebar Profile -->
-            <div class="sidebar-profile">
-                <img id="sidebar-profile-pic" src="https://via.placeholder.com/50" alt="Profile Photo">
-                <span id="sidebar-username">User</span>
-            </div>
-            <div id="profile-dropdown">
-                <button onclick="window.location.href='profile.html'">View Profile</button>
-                <button id="logout-btn">Logout</button>
-            </div>
-
-            <nav class="nav-links">
-                <a href="home.html"><span>🏠</span> <span>Home</span></a>
-                <a href="index.html"><span>📚</span> <span>Subjects</span></a>
-                <a href="contact.html"><span>📞</span> <span>Contact</span></a>
-                <a href="about.html"><span>ℹ️</span> <span>About</span></a>
-            </nav>
-        </div>
-        <footer>
-            © 2025 EduConnect. All rights reserved.
-        </footer>
+        <div class="logo">EduConnect</div>
+        <nav class="nav-links">
+            <a href="dasboard.html" class="active">🏠 Home</a>
+            <a href="about.html">ℹ️ About</a>
+            <a href="dashboard.html">📚 Subjects</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+        <footer>© 2025 EduConnect</footer>
     </aside>
 
     <!-- Main Content -->
     <main>
-        <header>
-            <h1>EduConnect</h1>
-            <div class="search-bar">
-                <input type="text" class="search-box" id="searchInput"
-                    placeholder="Search subjects, topics, or lessons..." />
-            </div>
+        <header class="top-bar">
+            <input type="text" placeholder="Search subjects, lessons, or topics..." class="search-bar" />
         </header>
 
-        <section class="intro">
-            <h1>Empowering Learners Everywhere 🌍</h1>
-            <p>Access quality education anytime, anywhere. Start your journey with our free learning resources.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to <span>EduConnect</span> 🎓</h1>
+                <p>
+                    Empowering students with digital learning tools. Explore lessons, quizzes, and educational resources
+                    designed to help you succeed.
+                </p>
+                <div class="hero-buttons">
+                    <a href="dashboard.html" class="cta-btn">Start Learning</a>
+                    <button class="login-btn">Login / Sign Up</button>
+                </div>
+            </div>
+            <img src="images/home page.jpg" alt="Students learning" class="hero-image" />
         </section>
 
-        <section class="subjects" id="subjects">
-            <!-- Subjects Cards -->
-            <div class="card">
-                <img src="images/math.jpeg" alt="Mathematics">
-                <div class="card-content">
-                    <h3>Mathematics</h3>
-                    <p>Explore numbers, equations, and real-world problem-solving techniques.</p>
-                    <a href="subjects/math.html" class="start-btn">Start Learning</a>
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Why Choose EduConnect?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="images/student learning.jpg" alt="Study group">
+                    <h3>📘 Quality Learning</h3>
+                    <p>Access detailed notes, tutorials, and exercises curated by top educators.</p>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/Albert-Einstein.jpg" alt="Science">
-                <div class="card-content">
-                    <h3>Science</h3>
-                    <p>Discover how the universe works — from atoms to galaxies.</p>
-                    <a href="subjects/science.html" class="start-btn">Start Learning</a>
+                <div class="feature-card">
+                    <h3>💡 Interactive Lessons</h3>
+                    <p>Engage with fun, hands-on lessons that make learning exciting and effective.</p>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/history.avif" alt="History">
-                <div class="card-content">
-                    <h3>History</h3>
-                    <p>Learn about the events and people that shaped our world today.</p>
-                    <a href="subjects/history.html" class="start-btn">Start Learning</a>
+                <div class="feature-card">
+                    <h3>🌍 Learn Anywhere</h3>
+                    <p>Seamlessly access your lessons on any device, anytime, anywhere.</p>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/english.jpg" alt="English">
-                <div class="card-content">
-                    <h3>English</h3>
-                    <p>Improve your language skills with interactive lessons and reading materials.</p>
-                    <a href="subjects/english.html" class="start-btn">Start Learning</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/commputer.jpeg" alt="Computer">
-                <div class="card-content">
-                    <h3>Computer</h3>
-                    <p>Learn about coding, technology, and the digital world that powers our future.</p>
-                    <a href="subjects/computer.html" class="start-btn">Start Learning</a>
+                <div class="feature-card">
+                    <h3>👩‍🏫 Expert Mentorship</h3>
+                    <p>Connect with experienced tutors and get personalized learning support.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <h2>Join EduConnect Today!</h2>
+            <p>Unlock your potential with access to hundreds of free lessons and learning tools.</p>
+            <a href="dashboard.html" class="cta-btn">Explore Subjects</a>
+        </section>
+
     </main>
 
-    <!-- JS -->
     <script>
-        // Live search
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-        const noResults = document.getElementById('noResults');
-
-        searchInput.addEventListener('input', () => {
-            const searchText = searchInput.value.toLowerCase();
-            let anyVisible = false;
-
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-
-                if (title.includes(searchText) || desc.includes(searchText)) {
-                    card.style.display = 'block';
-                    anyVisible = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            noResults.style.display = anyVisible ? 'none' : 'block';
+        // Sidebar toggle
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const sidebar = document.querySelector('.sidebar');
+        const main = document.querySelector('main');
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('collapsed');
         });
 
-        // Sidebar toggle
-            const toggleBtn = document.querySelector('.toggle-btn');
-            const sidebar = document.querySelector('.sidebar');
-            const main = document.querySelector('main');
+        // Modal login/signup
+        const modal = document.getElementById('authModal');
+        const loginBtn = document.querySelector('.login-btn');
+        const closeModal = document.querySelector('.close-modal');
 
-            toggleBtn.addEventListener('click', () => {
-                if (window.innerWidth > 768) {
-                    sidebar.classList.toggle('collapsed');
-                } else {
-                    sidebar.classList.toggle('active');
-                    main.classList.toggle('blur'); // blur main when sidebar open
-                }
-            });
+        loginBtn.addEventListener('click', () => {
+            window.location.href = "login.html";
+        });
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
     </script>
 
-    <!-- Firebase Sidebar Profile -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const sidebarElement = document.querySelector('.sidebar');
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyBwgRzr0A8qR2lzOlLP_B1mCiJ90IS2Nms",
-            authDomain: "educonnect-2b680.firebaseapp.com",
-            projectId: "educonnect-2b680",
-            storageBucket: "educonnect-2b680.appspot.com",
-            messagingSenderId: "438989414011",
-            appId: "1:438989414011:web:c21fe944e6da56094b0cde",
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        const sidebarPic = document.getElementById("sidebar-profile-pic");
-        const sidebarUsername = document.getElementById("sidebar-username");
-        const sidebarProfile = document.querySelector('.sidebar-profile');
-        const profileDropdown = document.getElementById("profile-dropdown");
-        const logoutBtn = document.getElementById("logout-btn");
-
-        onAuthStateChanged(auth, (user) => {
-            if (!user) return window.location.href = "login.html";
-
-            const userRef = doc(db, "users", user.uid);
-
-            onSnapshot(userRef, (snap) => {
-                if (snap.exists()) {
-                    const data = snap.data();
-                    sidebarUsername.textContent = data.username || user.email;
-                    sidebarPic.src = data.photoURL || "https://via.placeholder.com/50";
-                }
-            });
-        });
-
-        // Toggle dropdown
-        sidebarProfile.addEventListener("click", () => {
-            profileDropdown.style.display = profileDropdown.style.display === "flex" ? "none" : "flex";
-        });
-
-        // Close dropdown if clicked outside
-        window.addEventListener("click", (e) => {
-            if (!sidebarProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
-                profileDropdown.style.display = "none";
-            }
-        });
-
-        // Logout
-        logoutBtn.addEventListener("click", async () => {
-            await signOut(auth);
-            window.location.href = "login.html";
+        hamburger.addEventListener('click', () => {
+            sidebarElement.classList.toggle('active');
         });
     </script>
 
