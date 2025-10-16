@@ -7,105 +7,165 @@
     <title>EduConnect</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Sidebar profile styles */
-        .sidebar-profile {
+        /* Sidebar base */
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+    
+        .sidebar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px;
+            color: #004aad;
+            text-align: center;
+        }
+    
+        .sidebar .nav-links {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .sidebar .nav-links a {
             display: flex;
             align-items: center;
-            margin: 1rem 0;
+            padding: 12px 20px;
+            color: #004aad;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+    
+        .sidebar .nav-links a span:first-child {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+    
+        .sidebar .nav-links a:hover {
+            background-color: #f0f4ff;
+        }
+    
+        /* Sidebar profile */
+        .sidebar .sidebar-profile {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
             cursor: pointer;
         }
-
-        .sidebar-profile img {
+    
+        .sidebar .sidebar-profile img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            margin-right: 10px;
             object-fit: cover;
+            margin-right: 10px;
         }
-
-        .sidebar-profile span {
+    
+        .sidebar .sidebar-profile span {
             font-weight: bold;
             color: #004aad;
         }
-
-        /* Dropdown menu in sidebar */
+    
+        /* Collapsed Sidebar (for desktop) */
+        .sidebar.collapsed {
+            width: 70px;
+            overflow: hidden;
+        }
+    
+        .sidebar.collapsed .logo {
+            font-size: 0;
+        }
+    
+        .sidebar.collapsed .nav-links a {
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 14px 0;
+        }
+    
+        .sidebar.collapsed .nav-links a span:nth-child(2) {
+            display: none;
+        }
+    
+        /* Sidebar dropdown */
         #profile-dropdown {
             display: none;
             flex-direction: column;
             margin-top: 5px;
         }
-
+    
         #profile-dropdown button {
             background: none;
             border: none;
             text-align: left;
-            padding: 5px 0;
+            padding: 5px 20px;
             cursor: pointer;
             color: #004aad;
         }
-
-        /* Collapsed Sidebar */
-        .sidebar.collapsed {
-            width: 70px;
-            transition: width 0.3s ease;
-            overflow: hidden;
-        }
-
-        .sidebar.collapsed .logo {
-            font-size: 0;
-        }
-
-        .sidebar.collapsed .nav-links a {
-            text-align: center;
-            font-size: 1.2rem;
-            padding: 14px 0;
-        }
-
-        .sidebar.collapsed .sidebar-profile span {
-            display: none;
-        }
-
-        /* Fix footer at bottom */
+    
+        /* Footer always at bottom */
         .sidebar footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 1rem 0;
+            margin-top: auto;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            color: #555;
         }
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
+    
+        /* Mobile responsiveness — fixed version */
+        @media screen and (max-width: 768px) {
             .sidebar {
-                width: 0;
+                left: -250px;
+                /* Hidden by default on mobile */
+                width: 250px;
                 position: fixed;
                 top: 0;
-                left: 0;
                 height: 100%;
-                background: #fff;
-                z-index: 1000;
-                overflow-y: auto;
-                transition: width 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                transition: left 0.3s ease;
+                z-index: 2000;
             }
-
-            .sidebar.collapsed {
-                width: 0;
+    
+            /* When toggled open */
+            .sidebar.active {
+                left: 0;
             }
-
-            .sidebar-profile span {
-                display: none;
+    
+            /* Keep toggle button visible on top */
+            .toggle-btn {
+                display: block;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 2100;
+                background: #004aad;
+                color: #fff;
+                border: none;
+                font-size: 1.5rem;
+                border-radius: 6px;
+                padding: 5px 10px;
+                cursor: pointer;
             }
-
-            .nav-links a span:last-child {
-                display: none;
-            }
-
+    
             main {
+                margin-left: 0;
                 transition: filter 0.3s ease;
+            }
+    
+            /* Optional: blur main content when sidebar is open */
+            main.blur {
+                filter: blur(2px);
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -116,7 +176,7 @@
             <div class="logo">EduConnect</div>
 
             <!-- Sidebar Profile -->
-            <div class="sidebar-profile" id="dropdownToggle">
+            <div class="sidebar-profile">
                 <img id="sidebar-profile-pic" src="https://via.placeholder.com/50" alt="Profile Photo">
                 <span id="sidebar-username">User</span>
             </div>
@@ -127,7 +187,6 @@
 
             <nav class="nav-links">
                 <a href="home.html"><span>🏠</span> <span>Home</span></a>
-                <a href="profile.html">👤 Profile</a>
                 <a href="index.html"><span>📚</span> <span>Subjects</span></a>
                 <a href="contact.html"><span>📞</span> <span>Contact</span></a>
                 <a href="about.html"><span>ℹ️</span> <span>About</span></a>
@@ -196,11 +255,9 @@
                 </div>
             </div>
         </section>
-
-        <div class="no-results" id="noResults">⚠️ No subjects found. Try another search.</div>
     </main>
 
-    <!-- JavaScript -->
+    <!-- JS -->
     <script>
         // Live search
         const searchInput = document.getElementById('searchInput');
@@ -227,14 +284,18 @@
         });
 
         // Sidebar toggle
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const sidebar = document.querySelector('.sidebar');
-        const main = document.querySelector('main');
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const sidebar = document.querySelector('.sidebar');
+            const main = document.querySelector('main');
 
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            main.classList.toggle('collapsed');
-        });
+            toggleBtn.addEventListener('click', () => {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.toggle('collapsed');
+                } else {
+                    sidebar.classList.toggle('active');
+                    main.classList.toggle('blur'); // blur main when sidebar open
+                }
+            });
     </script>
 
     <!-- Firebase Sidebar Profile -->
@@ -258,8 +319,8 @@
 
         const sidebarPic = document.getElementById("sidebar-profile-pic");
         const sidebarUsername = document.getElementById("sidebar-username");
-        const dropdownToggle = document.getElementById("dropdownToggle");
-        const dropdown = document.getElementById("profile-dropdown");
+        const sidebarProfile = document.querySelector('.sidebar-profile');
+        const profileDropdown = document.getElementById("profile-dropdown");
         const logoutBtn = document.getElementById("logout-btn");
 
         onAuthStateChanged(auth, (user) => {
@@ -267,7 +328,6 @@
 
             const userRef = doc(db, "users", user.uid);
 
-            // Listen for live updates
             onSnapshot(userRef, (snap) => {
                 if (snap.exists()) {
                     const data = snap.data();
@@ -278,15 +338,14 @@
         });
 
         // Toggle dropdown
-        dropdownToggle.addEventListener("click", (e) => {
-            e.stopPropagation();
-            dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        sidebarProfile.addEventListener("click", () => {
+            profileDropdown.style.display = profileDropdown.style.display === "flex" ? "none" : "flex";
         });
 
         // Close dropdown if clicked outside
         window.addEventListener("click", (e) => {
-            if (!dropdownToggle.contains(e.target) && !dropdown.contains(e.target)) {
-                dropdown.style.display = "none";
+            if (!sidebarProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.style.display = "none";
             }
         });
 

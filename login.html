@@ -90,6 +90,24 @@
         button:hover {
             background: #0056b3;
         }
+
+        /* === Mobile input visibility fix === */
+@media screen and (max-width: 768px) {
+    input,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        background-color: #f9f9f9 !important; /* light grey for contrast */
+        color: #000 !important; /* ensure text is visible */
+        border: 1px solid #ccc !important; /* light grey border for visibility */
+    }
+
+    input::placeholder {
+        color: #555 !important; /* darker placeholder on mobile */
+    }
+}
+
     </style>
 </head>
 
