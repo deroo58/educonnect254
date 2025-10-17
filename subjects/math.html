@@ -94,20 +94,46 @@
         <p>Master problem-solving through engaging lessons and real-world examples.</p>
         <div class="lessons">
             <div class="lesson-card">
-                <h3>📘 Algebra Basics</h3>
-                <p>Learn equations, variables, and expressions that form math’s foundation.</p>
+                <h3>FORM I</h3>
             </div>
             <div class="lesson-card">
-                <h3>📐 Geometry</h3>
-                <p>Understand shapes, angles, and spatial reasoning.</p>
+                <h3>FORM II</h3>
             </div>
             <div class="lesson-card">
-                <h3>📊 Statistics</h3>
-                <p>Collect, analyze, and interpret data in real-world contexts.</p>
+                <h3>FORM III</h3>
+            </div>
+            <div class="lesson-card">
+                <h3>FORM IV</h3>
             </div>
         </div>
-        <a href="../index.html" class="back-btn">⬅ Back to Home</a>
+        <a href="../dashboard.html" class="back-btn">⬅ Back to Home</a>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.lesson-card');
+            cards.forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    switch (index) {
+                        case 0:
+                            window.location.href = '../math-forms/mathform1.html';
+                            break;
+                        case 1:
+                            window.location.href = '../math-forms/mathform2.html';
+                            break;
+                        case 2:
+                            window.location.href = '../math-forms/mathform3.html';
+                            break;
+                        case 3:
+                            window.location.href = '../math-forms/mathform4.html';
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
