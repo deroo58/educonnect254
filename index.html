@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduConnect | Home</title>
+    <title>EduConnect | Empower Learning</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar glass">
         <button class="toggle-btn">☰</button>
-        <div class="logo">EduConnect</div>
+        <div class="logo">🎓 EduConnect</div>
         <nav class="nav-links">
             <a href="about.html">ℹ️ About</a>
             <a href="contact.html">📞 Contact</a>
@@ -22,57 +23,77 @@
 
     <!-- Main Content -->
     <main>
+        <!-- Top bar -->
         <header class="top-bar">
-            <input type="text" placeholder="Search subjects, lessons, or topics..." class="search-bar" />
+            <input type="text" placeholder="🔍 Search subjects, lessons, or topics..." class="search-bar" />
         </header>
 
-        <!-- Hero Section -->
+        <!-- Hero Section with Animated Slideshow -->
         <section class="hero">
+            <div class="slideshow">
+                <div class="slide fade"
+                    style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');">
+                </div>
+                <div class="slide fade"
+                    style="background-image: url('https://images.unsplash.com/photo-1584697964403-85f2d0f68f9a?auto=format&fit=crop&w=1600&q=80');">
+                </div>
+                <div class="slide fade"
+                    style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');">
+                </div>
+            </div>
+
+            <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Welcome to <span>EduConnect</span> 🎓</h1>
-                <p>
-                    Empowering students with digital learning tools. Explore lessons, quizzes, and educational resources
-                    designed to help you succeed.
+                <h1 class="slide-up">Empower Your <span>Learning Journey</span></h1>
+                <p class="fade-in-delay">
+                    Access lessons, quizzes, and interactive tools — anytime, anywhere.
                 </p>
-                <div class="hero-buttons">
-                    <a href="dashboard.html" class="cta-btn">Start Learning</a>
+                <div class="hero-buttons fade-in-delay2">
+                    <a href="dashboard.html" class="cta-btn">🚀 Start Learning</a>
                     <button class="login-btn">Login / Sign Up</button>
                 </div>
             </div>
-            <img src="images/home page.jpg" alt="Students learning" class="hero-image" />
         </section>
 
         <!-- Features Section -->
         <section class="features">
-            <h2>Why Choose EduConnect?</h2>
+            <h2 class="section-title">Why Choose EduConnect?</h2>
             <div class="feature-grid">
-                <div class="feature-card">
-                    <img src="images/student learning.jpg" alt="Study group">
+                <div class="feature-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1584697964403-85f2d0f68f9a?auto=format&fit=crop&w=800&q=80"
+                        alt="Quality Learning">
                     <h3>📘 Quality Learning</h3>
-                    <p>Access detailed notes, tutorials, and exercises curated by top educators.</p>
+                    <p>Access structured notes, tutorials, and exercises curated by top educators.</p>
                 </div>
-                <div class="feature-card">
+
+                <div class="feature-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80"
+                        alt="Interactive Lessons">
                     <h3>💡 Interactive Lessons</h3>
-                    <p>Engage with fun, hands-on lessons that make learning exciting and effective.</p>
+                    <p>Engage with fun, hands-on activities that make learning interactive and memorable.</p>
                 </div>
-                <div class="feature-card">
+
+                <div class="feature-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1603575448364-358927cb4b52?auto=format&fit=crop&w=800&q=80"
+                        alt="Learn Anywhere">
                     <h3>🌍 Learn Anywhere</h3>
-                    <p>Seamlessly access your lessons on any device, anytime, anywhere.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>👩‍🏫 Expert Mentorship</h3>
-                    <p>Connect with experienced tutors and get personalized learning support.</p>
+                    <p>Access your lessons seamlessly from any device, anytime, anywhere.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action -->
-        <section class="cta">
-            <h2>Join EduConnect Today!</h2>
-            <p>Unlock your potential with access to hundreds of free lessons and learning tools.</p>
-            <a href="dashboard.html" class="cta-btn">Explore Subjects</a>
+        <!-- CTA Section -->
+        <section class="cta gradient-bg">
+            <div class="cta-content">
+                <h2>Join EduConnect Today 🎓</h2>
+                <p>Unlock your potential with hundreds of free lessons and study tools.</p>
+                <a href="dashboard.html" class="cta-btn glow">Explore Subjects</a>
+            </div>
         </section>
 
+        <footer class="main-footer">
+            <p>© 2025 EduConnect. Empowering learners worldwide.</p>
+        </footer>
     </main>
 
     <script>
@@ -85,31 +106,33 @@
             main.classList.toggle('collapsed');
         });
 
-        // Modal login/signup
-        const modal = document.getElementById('authModal');
+        // Login button redirect
         const loginBtn = document.querySelector('.login-btn');
-        const closeModal = document.querySelector('.close-modal');
-
         loginBtn.addEventListener('click', () => {
             window.location.href = "login.html";
         });
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
+
+        // Smooth slideshow
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlides() {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === slideIndex ? 1 : 0;
+            });
+            slideIndex = (slideIndex + 1) % slides.length;
+            setTimeout(showSlides, 6000);
+        }
+        showSlides();
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
-
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const sidebarElement = document.querySelector('.sidebar');
-
-        hamburger.addEventListener('click', () => {
-            sidebarElement.classList.toggle('active');
-        });
-    </script>
-
 </body>
 
 </html>
