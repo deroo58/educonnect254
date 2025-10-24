@@ -1013,3 +1013,127 @@ footer {
         visibility: hidden;
     }
 }
+
+.comments-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.comments-sidebar.open {
+    right: 0;
+}
+
+.comments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.comment-input {
+    border-top: 1px solid #333;
+    padding: 1rem;
+    background: #111;
+}
+
+.comment-input textarea {
+    width: 100%;
+    height: 60px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.comment-input button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.comment-input button:hover {
+    background: #0056b3;
+}
+
+.comment-item {
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+#profile-dropdown {
+    display: none;
+    flex-direction: column;
+    background: #1e1e1e;
+    border-radius: 10px;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    padding: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+#profile-dropdown.show {
+    display: flex;
+}
+
+#profile-dropdown button {
+    background: transparent;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#profile-dropdown button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

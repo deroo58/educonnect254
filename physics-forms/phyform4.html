@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathematics Form II | EduConnect</title>
+    <title>Physics Form IV | EduConnect</title>
 
     <style>
         body {
@@ -17,12 +17,12 @@
         }
 
         header {
-            background: url('https://img.freepik.com/free-photo/math-formulas-drawn-blackboard_23-2148193471.jpg') center/cover no-repeat;
+            background: url('https://media.istockphoto.com/id/1032685046/photo/physics-and-mathematics-formulas-concept.jpg?s=2048x2048&w=is&k=20&c=gfE5ay0MLCaiPImb8MZjR0ku8mpVv9Q6CfpD3M0UI7M=') center/cover no-repeat;
             padding: 100px 20px;
             color: #4f9eff;
             font-size: 2rem;
             font-weight: 700;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
             animation: fadeInDown 1.5s ease;
         }
 
@@ -169,20 +169,6 @@
             margin-top: 5px;
         }
 
-        .comment-actions {
-            margin-top: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #60a5fa;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
         .comment-input {
             padding: 1rem;
             background: #121212;
@@ -216,113 +202,109 @@
         .comment-input button:hover {
             background: #1e40af;
         }
-
-        @keyframes fadeInDown {
-            from {
-                transform: translateY(-40px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <header>Mathematics - Form II</header>
+    <header>Physics - Form IV</header>
 
     <section>
         <h2>Topics Covered</h2>
 
         <div class="topic">
-            <h3>Cubes and Cube Roots</h3>
-            <p>Find cube/cube root by multiplication/factor method/tables, evaluate expressions.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Cubes and Cube Roots')">💬 View
+            <h3>Thin Lenses</h3>
+            <p>Converging/diverging lenses, ray diagrams, focal length, image location, human eye, vision defects,
+                optical devices.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Thin Lenses')">💬 View Comments</button>
+            <a href="../notes/thin-lenses.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Uniform Circular Motion</h3>
+            <p>Angular displacement, centripetal force, banking of roads, conical pendulum, calculations and
+                applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Uniform Circular Motion')">💬 View
                 Comments</button>
-            <a href="../notes/cubes-and-cube-roots.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/uniform-circular-motion.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Reciprocals</h3>
-            <p>Find reciprocals by division/tables, use reciprocals in computation.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reciprocals')">💬 View Comments</button>
-            <a href="../notes/reciprocals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Indices and Logarithms</h3>
-            <p>Define indices, laws of indices, relate powers of 10 to logarithms, and use tables.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Indices and Logarithms')">💬 View
+            <h3>Floating and Sinking</h3>
+            <p>Archimedes’ principle, law of flotation, relative density, applications, and solving numerical problems.
+            </p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Floating and Sinking')">💬 View
                 Comments</button>
-            <a href="../notes/indices-and-logarithms.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/floating-and-sinking.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Equations of Straight Lines</h3>
-            <p>Define gradient, determine equations, and interpret parallel and perpendicular lines.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Equations of Straight Lines')">💬 View
+            <h3>Electromagnetic Spectrum</h3>
+            <p>Full EM spectrum, detection methods, characteristics, and applications of each region.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Electromagnetic Spectrum')">💬 View
                 Comments</button>
-            <a href="../notes/equations-of-straight-lines.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/electromagnetic-spectrum.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Reflection and Congruence</h3>
-            <p>State properties of reflection and identify congruent triangles using coordinates.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reflection and Congruence')">💬 View
+            <h3>Electromagnetic Induction</h3>
+            <p>Faraday’s and Lenz’s laws, mutual induction, generators, transformers, and practical applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Electromagnetic Induction')">💬 View
                 Comments</button>
-            <a href="../notes/reflection-and-congruence.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/electromagnetic-induction.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Rotation</h3>
-            <p>Identify centre, angle, and properties of rotation, including rotational symmetry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Rotation')">💬 View Comments</button>
-            <a href="../notes/rotation.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <h3>Mains Electricity</h3>
+            <p>Power generation and transmission, domestic wiring, power ratings, and electrical safety.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Mains Electricity')">💬 View Comments</button>
+            <a href="../notes/mains-electricity.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Similarity and Enlargement</h3>
-            <p>Identify similar figures, apply enlargement and scale factors in geometry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Similarity and Enlargement')">💬 View
+            <h3>Cathode Rays and Cathode Ray Tube</h3>
+            <p>Production, properties, applications, and operation of cathode ray tubes and CROs.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Cathode Rays and Cathode Ray Tube')">💬 View
                 Comments</button>
-            <a href="../notes/similarity-and-enlargement.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/cathode-rays.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Pythagoras Theorem</h3>
-            <p>Use and apply the theorem to real life and mathematical problems.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Pythagoras Theorem')">💬 View Comments</button>
-            <a href="../notes/pythagoras-theorem.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <h3>X-Rays</h3>
+            <p>Production, properties, dangers, uses, and energy changes in X-ray tubes.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('X-Rays')">💬 View Comments</button>
+            <a href="../notes/x-rays.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Trigonometry</h3>
-            <p>Apply trigonometric ratios, tables, and relationships in solving triangles.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Trigonometry')">💬 View Comments</button>
-            <a href="../notes/trigonometry.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <h3>Photoelectric Effect</h3>
+            <p>Experiments, Einstein’s equation, photon energy, threshold frequency, and applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Photoelectric Effect')">💬 View
+                Comments</button>
+            <a href="../notes/photoelectric-effect.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Radioactivity</h3>
+            <p>Half-life, types of radiation, nuclear equations, fission, fusion, dangers, and applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Radioactivity')">💬 View Comments</button>
+            <a href="../notes/radioactivity.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Electronics</h3>
+            <p>Semiconductors, doping, diodes, rectification, and practical applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Electronics')">💬 View Comments</button>
+            <a href="../notes/electronics.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="nav-btns">
-            <a href="../subjects/math.html" class="btn">⬅ Back to Mathematics</a>
-            <a href="../math-forms/mathform1.html" class="btn">⬅ Back to Form 1</a>
-            <a href="../math-forms/mathform3.html" class="btn">To Form 3 ➡</a>
+            <a href="../subjects/physics.html" class="btn">⬅ Back to Physics</a>
+            <a href="../physics-forms/phyform3.html" class="btn">⬅ Back to Form 3</a>
+            <a href="../physics-forms/phyform1.html" class="btn">To Form 1 ➡</a>
         </div>
     </section>
 
-    <!-- 💬 Comments Sidebar -->
+    <!-- ===== Comments Sidebar ===== -->
     <div id="commentsSidebar" class="comment-sidebar">
         <div class="sidebar-header">
             <h3 id="topicTitle">Comments</h3>
@@ -335,6 +317,7 @@
         </div>
     </div>
 
+    <!-- 💬 Firebase Comment Script -->
     <script type="module" src="../js/comment.js"></script>
 </body>
 

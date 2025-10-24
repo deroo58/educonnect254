@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sidebar Toggle Test</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: #0e0e0e;
+            color: #fff
+        }
+
+        .comments-sidebar {
+            position: fixed;
+            top: 0;
+            right: -360px;
+            width: 360px;
+            height: 100vh;
+            background: #181818;
+            transition: right .3s;
+            padding: 16px;
+        }
+
+        .comments-sidebar.open {
+            right: 0
+        }
+
+        button {
+            background: #4f9eff;
+            color: #fff;
+            padding: .6rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Test</h2>
+    <button onclick="toggleCommentsSidebar('Test Topic')">Open Comments (Test Topic)</button>
+
+    <div id="commentsSidebar" class="comments-sidebar">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>Comments</h3>
+            <button onclick="toggleCommentsSidebar()">✖</button>
+        </div>
+        <div id="commentsList">No comments (test page)</div>
+    </div>
+
+    <script>
+        // simple toggle function (global)
+        window.toggleCommentsSidebar = function (topic) {
+            window.currentTopic = topic || window.currentTopic;
+            console.log('toggleCommentsSidebar called, topic=', window.currentTopic);
+            const sidebar = document.getElementById('commentsSidebar');
+            sidebar.classList.toggle('open');
+        };
+    </script>
+</body>
+
+</html>

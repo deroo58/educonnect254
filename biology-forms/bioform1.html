@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathematics Form II | EduConnect</title>
+    <title>Biology Form I | EduConnect</title>
 
     <style>
         body {
@@ -17,12 +17,12 @@
         }
 
         header {
-            background: url('https://img.freepik.com/free-photo/math-formulas-drawn-blackboard_23-2148193471.jpg') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             padding: 100px 20px;
             color: #4f9eff;
             font-size: 2rem;
             font-weight: 700;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
             animation: fadeInDown 1.5s ease;
         }
 
@@ -169,20 +169,6 @@
             margin-top: 5px;
         }
 
-        .comment-actions {
-            margin-top: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #60a5fa;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
         .comment-input {
             padding: 1rem;
             background: #121212;
@@ -216,113 +202,64 @@
         .comment-input button:hover {
             background: #1e40af;
         }
-
-        @keyframes fadeInDown {
-            from {
-                transform: translateY(-40px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <header>Mathematics - Form II</header>
+    <header>Biology - Form I</header>
 
     <section>
         <h2>Topics Covered</h2>
 
         <div class="topic">
-            <h3>Cubes and Cube Roots</h3>
-            <p>Find cube/cube root by multiplication/factor method/tables, evaluate expressions.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Cubes and Cube Roots')">💬 View
+            <h3>Introduction to Biology</h3>
+            <p>Definition, branches, importance, characteristics of living organisms, comparison between plants and
+                animals.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Introduction to Biology')">💬 View
                 Comments</button>
-            <a href="../notes/cubes-and-cube-roots.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/introduction-to-biology.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Reciprocals</h3>
-            <p>Find reciprocals by division/tables, use reciprocals in computation.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reciprocals')">💬 View Comments</button>
-            <a href="../notes/reciprocals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <h3>Classification I</h3>
+            <p>Use of magnifying lens, external features, necessity and units of classification, binomial nomenclature,
+                Kingdoms (Monera, Protoctista, Fungi, Plantae, Animalia).</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Classification I')">💬 View Comments</button>
+            <a href="../notes/classification-1.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Indices and Logarithms</h3>
-            <p>Define indices, laws of indices, relate powers of 10 to logarithms, and use tables.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Indices and Logarithms')">💬 View
+            <h3>The Cell</h3>
+            <p>Definition, microscope use and parts, cell structure, cell specialization, tissues, organs and systems.
+            </p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('The Cell')">💬 View Comments</button>
+            <a href="../notes/the-cell.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Cell Physiology</h3>
+            <p>Membrane structure and permeability, diffusion, osmosis, active transport, and factors affecting these
+                processes.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Cell Physiology')">💬 View Comments</button>
+            <a href="../notes/cell-physiology.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Nutrition in Plants and Animals</h3>
+            <p>Modes of feeding, photosynthesis (light/dark stages), enzymes, digestion, dentition, and energy
+                requirements.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Nutrition in Plants and Animals')">💬 View
                 Comments</button>
-            <a href="../notes/indices-and-logarithms.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Equations of Straight Lines</h3>
-            <p>Define gradient, determine equations, and interpret parallel and perpendicular lines.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Equations of Straight Lines')">💬 View
-                Comments</button>
-            <a href="../notes/equations-of-straight-lines.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Reflection and Congruence</h3>
-            <p>State properties of reflection and identify congruent triangles using coordinates.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reflection and Congruence')">💬 View
-                Comments</button>
-            <a href="../notes/reflection-and-congruence.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Rotation</h3>
-            <p>Identify centre, angle, and properties of rotation, including rotational symmetry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Rotation')">💬 View Comments</button>
-            <a href="../notes/rotation.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Similarity and Enlargement</h3>
-            <p>Identify similar figures, apply enlargement and scale factors in geometry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Similarity and Enlargement')">💬 View
-                Comments</button>
-            <a href="../notes/similarity-and-enlargement.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Pythagoras Theorem</h3>
-            <p>Use and apply the theorem to real life and mathematical problems.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Pythagoras Theorem')">💬 View Comments</button>
-            <a href="../notes/pythagoras-theorem.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Trigonometry</h3>
-            <p>Apply trigonometric ratios, tables, and relationships in solving triangles.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Trigonometry')">💬 View Comments</button>
-            <a href="../notes/trigonometry.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/nutrition-in-plants-and-animals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="nav-btns">
-            <a href="../subjects/math.html" class="btn">⬅ Back to Mathematics</a>
-            <a href="../math-forms/mathform1.html" class="btn">⬅ Back to Form 1</a>
-            <a href="../math-forms/mathform3.html" class="btn">To Form 3 ➡</a>
+            <a href="../subjects/biology.html" class="btn">⬅ Back to Biology</a>
+            <a href="../biology-forms/bioform2.html" class="btn">To Form 2 ➡</a>
         </div>
     </section>
 
-    <!-- 💬 Comments Sidebar -->
+    <!-- ===== Comments Sidebar ===== -->
     <div id="commentsSidebar" class="comment-sidebar">
         <div class="sidebar-header">
             <h3 id="topicTitle">Comments</h3>
@@ -335,6 +272,7 @@
         </div>
     </div>
 
+    <!-- 💬 Firebase Comment Script -->
     <script type="module" src="../js/comment.js"></script>
 </body>
 

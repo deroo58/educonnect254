@@ -1,0 +1,398 @@
+/* Floating Forum Button */
+.forum-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1100;
+}
+
+.forum-icon:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.05);
+}
+
+/* Sidebar */
+.forum-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #181818;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s ease;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.4);
+    z-index: 1500;
+    font-family: "Poppins", sans-serif;
+}
+
+.forum-sidebar.active {
+    right: 0;
+}
+
+/* Header */
+.forum-header {
+    background-color: #004aad;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0d6efd;
+}
+
+.forum-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Content */
+.forum-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+}
+
+/* Input box */
+.forum-input {
+    padding: 1rem;
+    border-bottom: 1px solid #333;
+    background: #111;
+}
+
+.forum-input textarea {
+    width: 100%;
+    height: 70px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.forum-input button {
+    background: #0d6efd;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+}
+
+.forum-input button:hover {
+    background: #0056d2;
+}
+
+/* Posts */
+.forum-body {
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.forum-post {
+    background: #202020;
+    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.forum-post .author {
+    color: #69a7ff;
+    font-weight: 600;
+}
+
+.forum-post .time {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.forum-post .message {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    color: #0d6efd;
+}
+
+/* Replies */
+.reply-section {
+    margin-top: 10px;
+    border-left: 2px solid #333;
+    padding-left: 10px;
+}
+
+.reply {
+    background: #2a2a2a;
+    border-radius: 8px;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+.reply .author {
+    font-weight: 500;
+    color: #6aa8ff;
+}
+
+.reply .message {
+    font-size: 0.85rem;
+}
+
+.reply-form {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.reply-form textarea {
+    height: 50px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.reply-form button {
+    align-self: flex-end;
+    background: #004aad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.reply-form button:hover {
+    background: #0d6efd;
+}
+
+.forum-post .username {
+    color: #2196f3;
+    margin-bottom: 5px;
+}
+
+.forum-actions {
+    margin-top: 8px;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: #f5f5f5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.like-btn:hover {
+    color: #2196f3;
+}
+
+/* Forum Posts Styling */
+.forum-post {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #004aad;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.forum-post p {
+    margin: 0;
+    color: #333;
+}
+
+/* ===== Custom Scrollbar (Dark + Glowing) ===== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #333, #555);
+    border-radius: 10px;
+    box-shadow: 0 0 6px #0ff3;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #555, #777);
+    box-shadow: 0 0 10px #00ffff80, 0 0 20px #00ffff40;
+}
+
+/* 🔽 Scroll Buttons (Dark Theme) */
+.scroll-btn {
+    position: fixed;
+    right: 20px;
+    background-color: #222;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: none;
+    /* Hidden until sidebar opens */
+}
+
+.scroll-btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* ❤️ Like (heart) button styling */
+.upvote {
+    font-size: 13px;
+    cursor: pointer;
+    color: #bbb;
+    transition: transform 0.25s ease, color 0.25s ease;
+    position: relative;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.upvote:hover {
+    transform: scale(1.1);
+    color: #ff6fa0;
+}
+
+.upvote.liked {
+    color: #ff4b81;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px rgba(255, 75, 129, 0.6));
+}
+
+/* 💥 Floating heart burst animation */
+.heart-burst {
+    position: absolute;
+    font-size: 24px;
+    color: #ff4b81;
+    animation: heart-burst 0.8s ease-out forwards;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+/* ✨ Burst keyframes */
+@keyframes heart-burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+        filter: drop-shadow(0 0 6px rgba(255, 75, 129, 0.8));
+    }
+
+    40% {
+        transform: translate(-50%, -90%) scale(1.4);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translate(-50%, -130%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -180%) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* 💫 Pulse effect when liked */
+.upvote.liked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(255, 75, 129, 0.3);
+    animation: pulse 0.6s ease-out;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0.8;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}

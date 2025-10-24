@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biology Form III | EduConnect</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: url('https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_1.7777777777777777,w_1920,h_1080,g_auto/dpr_auto/f_auto/q_auto:eco/v1/History_Batch01_WorldWarI_03_HiRes_gemxod?_a=BAVAZGID0') center/cover no-repeat;
+      padding: 100px 20px;
+      color: #4f9eff;
+      font-size: 2rem;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+      animation: fadeInDown 1.5s ease;
+    }
+
+    section {
+      padding: 2rem 1.5rem;
+      animation: fadeIn 2s ease;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #4f9eff;
+      margin-bottom: 1rem;
+    }
+
+    /* =============================
+       Topic Cards
+    ============================= */
+        .topic {
+            background: #181818;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 1.3rem;
+            margin-bottom: 1.2rem;
+            text-align: left;
+            transition: all 0.35s ease;
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .topic:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(79, 158, 255, 0.25);
+            border-color: #4f9eff;
+        }
+
+        h3 {
+            color: #4f9eff;
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+    .btn,
+    .comment-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #4f9eff;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .comment-btn:hover {
+      background: #3577d1;
+    }
+
+    .nav-btns {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* --- Comment Sidebar --- */
+    .comment-sidebar {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      height: 100%;
+      background: #181818;
+      color: #f5f5f5;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.6);
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      z-index: 999;
+      border-left: 2px solid #2563eb;
+    }
+
+    .comment-sidebar.open {
+      right: 0;
+    }
+
+    .sidebar-header {
+      background: #2563eb;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .comments-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+
+    .comment-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      background: #202020;
+      padding: 0.8rem;
+      border-radius: 8px;
+    }
+
+    .comment-item img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .comment-meta {
+      font-weight: bold;
+      color: #60a5fa;
+    }
+
+    .comment-time {
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    .comment-text {
+      margin-top: 5px;
+    }
+
+    .comment-actions {
+      margin-top: 5px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .comment-actions button {
+      background: none;
+      border: none;
+      color: #60a5fa;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .comment-input {
+      padding: 1rem;
+      background: #121212;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #2563eb;
+    }
+
+    .comment-input textarea {
+      width: 100%;
+      height: 70px;
+      background: #1e1e1e;
+      border: none;
+      color: #f5f5f5;
+      border-radius: 6px;
+      padding: 0.5rem;
+      resize: none;
+    }
+
+    .comment-input button {
+      margin-top: 0.7rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.6rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .comment-input button:hover {
+      background: #1e40af;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>Biology - Form III</header>
+
+  <section>
+    <h2>Topics Covered</h2>
+
+    <div class="topic">
+      <h3>Classification II</h3>
+      <p>Principles, characteristics of five kingdoms, characteristics of Arthropoda/Chordata/Plantae divisions, dichotomous keys.</p>
+      <button class="comment-btn" onclick="toggleCommentsSidebar('Classification II')">💬 View Comments</button>
+      <a href="../notes/classification-ii.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+    </div>
+
+    <div class="topic">
+      <h3>Ecology</h3>
+      <p>Ecological concepts, biotic/abiotic factors, inter-relationships.</p>
+      <button class="comment-btn" onclick="toggleCommentsSidebar('Ecology')">💬 View Comments</button>
+      <a href="../notes/ecology.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+    </div>
+
+    <div class="topic">
+      <h3>Reproduction in Plants and Animals</h3>
+      <p>Chromosomes, mitosis/meiosis, asexual reproduction (binary fission, budding, spores), sexual reproduction.</p>
+      <button class="comment-btn" onclick="toggleCommentsSidebar('Reproduction in Plants and Animals')">💬 View Comments</button>
+      <a href="../notes/reproduction-in-plants-and-animals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+    </div>
+
+    <div class="topic">
+      <h3>Growth and Development</h3>
+      <p>Growth vs. development, growth rates, seed parts/dormancy/germination.</p>
+      <button class="comment-btn" onclick="toggleCommentsSidebar('Growth and Development')">💬 View Comments</button>
+      <a href="../notes/growth-and-development.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+    </div>
+
+    <div class="nav-btns">
+      <a href="../subjects/biology.html" class="btn">⬅ Back to Biology</a>
+      <a href="../biology-forms/bioform2.html" class="btn">⬅ Back to Form 2</a>
+      <a href="../biology-forms/bioform4.html" class="btn">To Form 4 ➡</a>
+    </div>
+  </section>
+
+  <!-- 💬 Comments Sidebar -->
+  <div id="commentsSidebar" class="comment-sidebar">
+    <div class="sidebar-header">
+      <h3 id="topicTitle">Comments</h3>
+      <button class="close-btn" onclick="toggleCommentsSidebar()">✖</button>
+    </div>
+    <div id="commentsList" class="comments-list"></div>
+    <div class="comment-input">
+      <textarea id="commentText" placeholder="Write a comment..."></textarea>
+      <button onclick="postComment()">Post</button>
+    </div>
+  </div>
+
+  <!-- 💬 Firebase Comments Script -->
+  <script type="module" src="../js/comment.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathematics Form II | EduConnect</title>
+    <title>Chemistry Form II | EduConnect</title>
 
     <style>
         body {
@@ -17,12 +17,12 @@
         }
 
         header {
-            background: url('https://img.freepik.com/free-photo/math-formulas-drawn-blackboard_23-2148193471.jpg') center/cover no-repeat;
+            background: url('https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_1.7777777777777777,w_1920,h_1080,g_auto/dpr_auto/f_auto/q_auto:eco/v1/History_Batch01_WorldWarI_03_HiRes_gemxod?_a=BAVAZGID0') center/cover no-repeat;
             padding: 100px 20px;
             color: #4f9eff;
             font-size: 2rem;
             font-weight: 700;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
             animation: fadeInDown 1.5s ease;
         }
 
@@ -169,20 +169,6 @@
             margin-top: 5px;
         }
 
-        .comment-actions {
-            margin-top: 5px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .comment-actions button {
-            background: none;
-            border: none;
-            color: #60a5fa;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
         .comment-input {
             padding: 1rem;
             background: #121212;
@@ -217,6 +203,16 @@
             background: #1e40af;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         @keyframes fadeInDown {
             from {
                 transform: translateY(-40px);
@@ -228,101 +224,77 @@
                 opacity: 1;
             }
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <header>Mathematics - Form II</header>
+    <header>Chemistry - Form II</header>
 
     <section>
         <h2>Topics Covered</h2>
 
         <div class="topic">
-            <h3>Cubes and Cube Roots</h3>
-            <p>Find cube/cube root by multiplication/factor method/tables, evaluate expressions.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Cubes and Cube Roots')">💬 View
+            <h3>Structure of the Atom and The Periodic Table</h3>
+            <p>Symbols/structure of first 20 elements, isotopes, atomic structure, periodic trends, valency, ions, and
+                chemical equations.</p>
+            <button class="comment-btn"
+                onclick="toggleCommentsSidebar('Structure of the Atom and The Periodic Table')">💬 View
                 Comments</button>
-            <a href="../notes/cubes-and-cube-roots.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/structure-of-the-atom.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Reciprocals</h3>
-            <p>Find reciprocals by division/tables, use reciprocals in computation.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reciprocals')">💬 View Comments</button>
-            <a href="../notes/reciprocals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <h3>Chemical Families; Patterns in Properties</h3>
+            <p>Study of alkali metals, alkaline-earth metals, halogens, and noble gases; trends in their physical and
+                chemical properties and uses.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Chemical Families; Patterns in Properties')">💬
+                View Comments</button>
+            <a href="../notes/chemical-families.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Indices and Logarithms</h3>
-            <p>Define indices, laws of indices, relate powers of 10 to logarithms, and use tables.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Indices and Logarithms')">💬 View
+            <h3>Structure and Bonding</h3>
+            <p>Role of outer electrons, types of bonding (ionic, covalent, metallic), and intermolecular forces such as
+                Van der Waals and hydrogen bonding.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Structure and Bonding')">💬 View
                 Comments</button>
-            <a href="../notes/indices-and-logarithms.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/structure-and-bonding.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Equations of Straight Lines</h3>
-            <p>Define gradient, determine equations, and interpret parallel and perpendicular lines.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Equations of Straight Lines')">💬 View
+            <h3>Salts</h3>
+            <p>Methods of preparation (soluble and insoluble), ionic equations, types of salts, heating effects, and
+                applications.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Salts')">💬 View Comments</button>
+            <a href="../notes/salts.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Effect of an Electric Current on Substances</h3>
+            <p>Conductors and non-conductors, electrolytes, electrolysis, products and applications (electroplating and
+                metal extraction).</p>
+            <button class="comment-btn"
+                onclick="toggleCommentsSidebar('Effect of an Electric Current on Substances')">💬 View Comments</button>
+            <a href="../notes/effect-of-electric-current.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Carbon and Some of its Compounds</h3>
+            <p>Chemical properties of carbon, its oxides, and the preparation, properties, and uses of key carbon
+                compounds.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Carbon and Some of its Compounds')">💬 View
                 Comments</button>
-            <a href="../notes/equations-of-straight-lines.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Reflection and Congruence</h3>
-            <p>State properties of reflection and identify congruent triangles using coordinates.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Reflection and Congruence')">💬 View
-                Comments</button>
-            <a href="../notes/reflection-and-congruence.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Rotation</h3>
-            <p>Identify centre, angle, and properties of rotation, including rotational symmetry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Rotation')">💬 View Comments</button>
-            <a href="../notes/rotation.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Similarity and Enlargement</h3>
-            <p>Identify similar figures, apply enlargement and scale factors in geometry.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Similarity and Enlargement')">💬 View
-                Comments</button>
-            <a href="../notes/similarity-and-enlargement.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Pythagoras Theorem</h3>
-            <p>Use and apply the theorem to real life and mathematical problems.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Pythagoras Theorem')">💬 View Comments</button>
-            <a href="../notes/pythagoras-theorem.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
-        </div>
-
-        <div class="topic">
-            <h3>Trigonometry</h3>
-            <p>Apply trigonometric ratios, tables, and relationships in solving triangles.</p>
-            <button class="comment-btn" onclick="toggleCommentsSidebar('Trigonometry')">💬 View Comments</button>
-            <a href="../notes/trigonometry.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+            <a href="../notes/carbon-and-compounds.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="nav-btns">
-            <a href="../subjects/math.html" class="btn">⬅ Back to Mathematics</a>
-            <a href="../math-forms/mathform1.html" class="btn">⬅ Back to Form 1</a>
-            <a href="../math-forms/mathform3.html" class="btn">To Form 3 ➡</a>
+            <a href="../subjects/chemistry.html" class="btn">⬅ Back to Chemistry</a>
+            <a href="../chemistry-forms/chemform1.html" class="btn">⬅ Back to Form I</a>
+            <a href="../chemistry-forms/chemform3.html" class="btn">To Form III ➡</a>
         </div>
     </section>
 
-    <!-- 💬 Comments Sidebar -->
+    <!-- ===== Comments Sidebar ===== -->
     <div id="commentsSidebar" class="comment-sidebar">
         <div class="sidebar-header">
             <h3 id="topicTitle">Comments</h3>
@@ -335,6 +307,7 @@
         </div>
     </div>
 
+    <!-- 💬 Firebase Comment Script -->
     <script type="module" src="../js/comment.js"></script>
 </body>
 

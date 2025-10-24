@@ -2,25 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Form I | EduConnect</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics Form I | EduConnect</title>
+
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             background: #0e0e0e;
             color: #fff;
             text-align: center;
+            overflow-x: hidden;
         }
 
         header {
-            background: url('https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_1.7777777777777777,w_1920,h_1080,g_auto/dpr_auto/f_auto/q_auto:eco/v1/History_Batch01_WorldWarI_03_HiRes_gemxod?_a=BAVAZGID0') center/cover no-repeat;
+            background: url('https://img.freepik.com/free-photo/math-formulas-drawn-blackboard_23-2148193471.jpg') center/cover no-repeat;
             padding: 100px 20px;
             color: #4f9eff;
             font-size: 2rem;
             font-weight: 700;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
             animation: fadeInDown 1.5s ease;
         }
 
@@ -38,42 +40,181 @@
         }
 
         .topic {
-            background: #1a1a1a;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            background: #181818;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 1.3rem;
+            margin-bottom: 1.2rem;
             text-align: left;
-            transition: 0.3s;
+            transition: all 0.35s ease;
+            box-shadow: 0 0 0 transparent;
         }
 
         .topic:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 10px rgba(79, 158, 255, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(79, 158, 255, 0.25);
+            border-color: #4f9eff;
         }
 
-        .back-btn {
+        h3 {
+            color: #4f9eff;
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        .btn,
+        .comment-btn {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 1rem;
             background: #4f9eff;
             color: white;
             padding: 0.7rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             transition: 0.3s;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
         }
 
-        .back-btn:hover {
+        .btn:hover,
+        .comment-btn:hover {
             background: #3577d1;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+        .nav-btns {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-            to {
-                opacity: 1;
-            }
+        /* --- Comment Sidebar --- */
+        .comment-sidebar {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            height: 100%;
+            background: #181818;
+            color: #f5f5f5;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.6);
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            border-left: 2px solid #2563eb;
+        }
+
+        .comment-sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .comments-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .comment-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            background: #202020;
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .comment-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comment-meta {
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .comment-text {
+            margin-top: 5px;
+        }
+
+        .comment-actions {
+            margin-top: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #60a5fa;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .comment-input {
+            padding: 1rem;
+            background: #121212;
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid #2563eb;
+        }
+
+        .comment-input textarea {
+            width: 100%;
+            height: 70px;
+            background: #1e1e1e;
+            border: none;
+            color: #f5f5f5;
+            border-radius: 6px;
+            padding: 0.5rem;
+            resize: none;
+        }
+
+        .comment-input button {
+            margin-top: 0.7rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.6rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .comment-input button:hover {
+            background: #1e40af;
         }
 
         @keyframes fadeInDown {
@@ -87,131 +228,107 @@
                 opacity: 1;
             }
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header>History - Form I</header>
+    <header>Mathematics - Form I</header>
+
     <section>
         <h2>Topics Covered</h2>
 
         <div class="topic">
             <h3>Natural Numbers</h3>
             <p>Identify, round off, classify, and solve problems involving natural numbers.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Natural Numbers')">💬 View Comments</button>
+            <a href="../notes/natural-numbers.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>2. Factors</h3>
-            <p>Express composite numbers in factor form and power form</p>
-        </div>
-
-        <div class="topic">
-            <h3>3. Divisibility Tests</h3>
-            <p>Test the divisibility of numbers by integers 2, 3, 4, 5, 6, 8, 9, 10, and 11.</p>
-        </div>
-
-        <div class="topic">
-            <h3>4. Greatest Common Divisor (GCD) / Highest Common Factor (HCF)</h3>
-            <p>Find GCD/HCF of numbers and apply to real life.</p>
-        </div>
-
-        <div class="topic">
-            <h3>4. Least Common Multiple (LCM)</h3>
-            <p>Find LCM of numbers and apply knowledge to real life situations.</p>
+            <h3>Factors & Multiples</h3>
+            <p>Express numbers in factor/power form, find HCF and LCM, apply to real life.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Factors & Multiples')">💬 View Comments</button>
+            <a href="../notes/factors-and-multiples.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
             <h3>Integers</h3>
-            <p>Define, identify on number line, perform operations, apply to real life.</p>
+            <p>Identify integers, perform operations, and apply to real life situations.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Integers')">💬 View Comments</button>
+            <a href="../notes/integers.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Fractions</h3>
-            <p>Identify, convert, compare, operate on fractions, apply to real life.</p>
+            <h3>Fractions & Decimals</h3>
+            <p>Convert, compare, and operate on fractions and decimals.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Fractions & Decimals')">💬 View
+                Comments</button>
+            <a href="../notes/fractions-and-decimals.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Decimals</h3>
-            <p>Convert fractions/decimals, recurring decimals, standard form, perform operations.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Squares and Square Roots</h3>
-            <p>Find squares by multiplication/tables; find square roots by factor method/tables.</p>
-        </div>
-
-            <div class="topic">
-                <h3>Algebraic Expressions</h3>
-                <p>Use letters, simplify, factorise, remove brackets, evaluate, apply to life.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Rates, Ratio, Percentages and Proportion</h3>
-            <p>Define, solve problems, apply to real life situations (direct/inverse proportion).</p>
-        </div>
-
-        <div class="topic">
-            <h3>Length</h3>
-            <p>State units, convert units, significant figures, find perimeter and circumference (arcs).</p>
-        </div>
-
-        <div class="topic">
-            <h3>Area</h3>
-            <p>State and convert units, calculate area of plane figures (regular/irregular), surface area.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Volume and Capacity</h3>
-            <p>State units, convert units, calculate volume of solids, relate volume to capacity.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Mass, Density and Weight</h3>
-            <p>Define mass and weight, state units, distinguish mass/weight, relate volume/mass/density.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Time</h3>
-            <p>Convert units, relate 12/24 hour systems, read/solve travel time-tables.</p>
+            <h3>Algebraic Expressions</h3>
+            <p>Use letters, simplify, expand, and factorise algebraic expressions.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Algebraic Expressions')">💬 View
+                Comments</button>
+            <a href="../notes/algebraic-expressions.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
             <h3>Linear Equations</h3>
-            <p>Solve linear and simultaneous equations (one/two unknowns), form equations from life.</p>
+            <p>Solve linear equations with one or two unknowns and apply to daily life.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Linear Equations')">💬 View Comments</button>
+            <a href="../notes/linear-equations.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Commercial Arithmetic 1</h3>
-            <p>State/convert currency using exchange rates, calculate profit/loss, discount/commission.</p>
+            <h3>Mensuration</h3>
+            <p>Calculate area, perimeter, volume, and surface area of 2D and 3D shapes.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Mensuration')">💬 View Comments</button>
+            <a href="../notes/mensuration.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
         <div class="topic">
-            <h3>Co-ordinates and Graphs</h3>
-            <p>Draw cartesian plane, plot points, draw/interpret linear graphs, solve simultaneous equations.</p>
+            <h3>Geometry & Angles</h3>
+            <p>Identify plane figures, angles, and solve geometrical construction problems.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Geometry & Angles')">💬 View Comments</button>
+            <a href="../notes/geometry-and-angles.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
         </div>
 
-        <div class="topic">
-            <h3>Angles and Plane Figures</h3>
-            <p>Identify types, solve problems involving angles (straight line/point/transversal/polygons).</p>
+        <div class="nav-btns">
+            <a href="../subjects/math.html" class="btn">⬅ Back to Mathematics</a>
+            <a href="../math-forms/mathform2.html" class="btn">To Form 2 ➡</a>
+            <a href="../view-notes.html" class="btn">📘 View All Notes</a>
         </div>
-
-        <div class="topic">
-            <h3>Geometrical Constructions</h3>
-            <p>Construct perpendicular bisectors, angles, polygons using ruler and compasses.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Scale Drawing</h3>
-            <p>Interpret/choose scales, draw sketches/bearings, angles of elevation/depression, simple surveying.</p>
-        </div>
-
-        <div class="topic">
-            <h3>Common Solids</h3>
-            <p>Identify/sketch solids, draw/make nets, calculate surface area, find distance between points.</p>
-        </div>
-
-        <a href="../subjects/math.html" class="back-btn">⬅ Back to Mathematics</a>
     </section>
+
+    <!-- ===== Comments Sidebar ===== -->
+    <div id="commentsSidebar" class="comment-sidebar">
+        <div class="sidebar-header">
+            <h3 id="topicTitle">Comments</h3>
+            <button class="close-btn" onclick="toggleCommentsSidebar()">✖</button>
+        </div>
+        <div id="commentsList" class="comments-list"></div>
+        <div class="comment-input">
+            <textarea id="commentText" placeholder="Write a comment..."></textarea>
+            <button onclick="postComment()">Post</button>
+        </div>
+    </div>
+
+    <!-- 💬 Firebase Comment Script -->
+    <script type="module" src="../js/comment.js"></script>
+    <script type="module" src="../js/uploadMaterial.js"></script>
+
 </body>
 
 </html>

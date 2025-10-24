@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English | EduConnect</title>
+    <title>Mathematics | EduConnect</title>
     <style>
         body {
             margin: 0;
@@ -15,7 +15,8 @@
         }
 
         header {
-            background: url('https://img.freepik.com/free-photo/open-book-with-beautiful-sunset-background_1150-11146.jpg?semt=ais_hybrid&w=1200&q=80') center/cover no-repeat;
+            background: url('../images/physics.webp') center/cover no-repeat;
+
             padding: 100px 20px;
             color: #4f9eff;
             font-size: 2rem;
@@ -88,52 +89,50 @@
 </head>
 
 <body>
-    <header>English</header>
+    <header>Physics</header>
     <section>
-        <p>Enhance your reading, writing, and speaking skills with engaging lessons and examples.</p>
+        <p>Master problem-solving through engaging lessons and real-world examples.</p>
         <div class="lessons">
             <div class="lesson-card">
                 <h3>FORM I</h3>
             </div>
-
             <div class="lesson-card">
                 <h3>FORM II</h3>
             </div>
-
             <div class="lesson-card">
                 <h3>FORM III</h3>
             </div>
-
             <div class="lesson-card">
                 <h3>FORM IV</h3>
             </div>
         </div>
         <a href="../dashboard.html" class="back-btn">⬅ Back to Home</a>
     </section>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.lesson-card');
-        cards.forEach((card, index) => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', () => {
-                switch (index) {
-                    case 0:
-                        window.location.href = '../english-forms/engform1.html';
-                        break;
-                    case 1:
-                        window.location.href = '../english-forms/engform2.html';
-                        break;
-                    case 2:
-                        window.location.href = '../english-forms/engform3.html';
-                        break;
-                    case 3:
-                        window.location.href = '../english-forms/engform4.html';
-                        break;
-                }
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.lesson-card');
+            cards.forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    switch (index) {
+                        case 0:
+                            window.location.href = '../physics-forms/phyform1.html';
+                            break;
+                        case 1:
+                            window.location.href = '../physics-forms/phyform2.html';
+                            break;
+                        case 2:
+                            window.location.href = '../physics-forms/phyform3.html';
+                            break;
+                        case 3:
+                            window.location.href = '../physics-forms/phyform4.html';
+                            break;
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
 </body>
 

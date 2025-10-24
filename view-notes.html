@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notes | EduConnect</title>
+    <link rel="stylesheet" href="../css/view-notes.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 Study Materials</h1>
+        <p>Select your subject and form to view uploaded materials.</p>
+
+        <div class="filters">
+            <select id="subjectSelect">
+                <option value="">Select Subject</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="English">English</option>
+                <option value="Kiswahili">Kiswahili</option>
+                <option value="Biology">Biology</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="History">History</option>
+                <option value="Geography">Geography</option>
+            </select>
+
+            <select id="formSelect">
+                <option value="">Select Form</option>
+                <option value="Form 1">Form 1</option>
+                <option value="Form 2">Form 2</option>
+                <option value="Form 3">Form 3</option>
+                <option value="Form 4">Form 4</option>
+            </select>
+
+            <button id="loadBtn">Load Materials</button>
+        </div>
+
+        <div id="materialsContainer" class="materials-container">
+            <p class="placeholder">No materials loaded yet.</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBwgRzr0A8qR2lzOlLP_B1mCiJ90IS2Nms",
+            authDomain: "educonnect-2b680.firebaseapp.com",
+            projectId: "educonnect-2b680",
+            storageBucket: "educonnect-2b680.appspot.com",
+            messagingSenderId: "438989414011",
+            appId: "1:438989414011:web:c21fe944e6da56094b0cde",
+            measurementId: "G-KW63Z7E1CK"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const subjectSelect = document.getElementById("subjectSelect");
+        const formSelect = document.getElementById("formSelect");
+        const loadBtn = document.getElementById("loadBtn");
+        const materialsContainer = document.getElementById("materialsContainer");
+
+        loadBtn.addEventListener("click", async () => {
+            const subject = subjectSelect.value.trim();
+            const form = formSelect.value.trim();
+
+            if (!subject || !form) {
+                alert("Please select both subject and form.");
+                return;
+            }
+
+            materialsContainer.innerHTML = "<p>Loading materials...</p>";
+
+            const q = query(
+                collection(db, "materials"),
+                where("subject", "==", subject),
+                where("form", "==", form),
+                orderBy("uploadedAt", "desc")
+            );
+
+            const snapshot = await getDocs(q);
+
+            if (snapshot.empty) {
+                materialsContainer.innerHTML = "<p>No materials uploaded yet.</p>";
+                return;
+            }
+
+            // Group materials by topic
+            const grouped = {};
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                if (!grouped[data.topic]) grouped[data.topic] = [];
+                grouped[data.topic].push(data);
+            });
+
+            // Render grouped materials
+            materialsContainer.innerHTML = "";
+            Object.entries(grouped).forEach(([topic, items]) => {
+                const topicSection = document.createElement("div");
+                topicSection.classList.add("topic-section");
+                topicSection.innerHTML = `<h2>${topic}</h2>`;
+
+                const filesDiv = document.createElement("div");
+                filesDiv.classList.add("files-list");
+
+                items.forEach((item) => {
+                    if (item.fileType === "pdf") {
+                        const pdfDiv = document.createElement("div");
+                        pdfDiv.classList.add("file-card");
+                        pdfDiv.innerHTML = `
+              <span>📄 ${topic}</span><br>
+              <a href="${item.fileURL}" target="_blank" class="view-btn">Open PDF</a>
+            `;
+                        filesDiv.appendChild(pdfDiv);
+                    } else if (item.fileType === "video") {
+                        const videoDiv = document.createElement("div");
+                        videoDiv.classList.add("file-card");
+                        videoDiv.innerHTML = `
+              <span>🎥 ${topic}</span><br>
+              <video controls width="300">
+                <source src="${item.fileURL}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            `;
+                        filesDiv.appendChild(videoDiv);
+                    }
+                });
+
+                topicSection.appendChild(filesDiv);
+                materialsContainer.appendChild(topicSection);
+            });
+        });
+    </script>
+</body>
+
+</html>

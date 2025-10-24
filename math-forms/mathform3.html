@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathematics Form III | EduConnect</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #0e0e0e;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: url('https://img.freepik.com/free-photo/math-formulas-drawn-blackboard_23-2148193471.jpg') center/cover no-repeat;
+            padding: 100px 20px;
+            color: #4f9eff;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        section {
+            padding: 2rem 1.5rem;
+            animation: fadeIn 2s ease;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        h2 {
+            color: #4f9eff;
+            margin-bottom: 1rem;
+        }
+
+        .topic {
+            background: #181818;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 1.3rem;
+            margin-bottom: 1.2rem;
+            text-align: left;
+            transition: all 0.35s ease;
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .topic:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(79, 158, 255, 0.25);
+            border-color: #4f9eff;
+        }
+
+        h3 {
+            color: #4f9eff;
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        .btn,
+        .comment-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #4f9eff;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover,
+        .comment-btn:hover {
+            background: #3577d1;
+        }
+
+        .nav-btns {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* --- Comment Sidebar --- */
+        .comment-sidebar {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 400px;
+            height: 100%;
+            background: #181818;
+            color: #f5f5f5;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.6);
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            border-left: 2px solid #2563eb;
+        }
+
+        .comment-sidebar.open {
+            right: 0;
+        }
+
+        .sidebar-header {
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .comments-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .comment-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            background: #202020;
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .comment-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comment-meta {
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .comment-time {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        .comment-text {
+            margin-top: 5px;
+        }
+
+        .comment-actions {
+            margin-top: 5px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .comment-actions button {
+            background: none;
+            border: none;
+            color: #60a5fa;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .comment-input {
+            padding: 1rem;
+            background: #121212;
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid #2563eb;
+        }
+
+        .comment-input textarea {
+            width: 100%;
+            height: 70px;
+            background: #1e1e1e;
+            border: none;
+            color: #f5f5f5;
+            border-radius: 6px;
+            padding: 0.5rem;
+            resize: none;
+        }
+
+        .comment-input button {
+            margin-top: 0.7rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.6rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .comment-input button:hover {
+            background: #1e40af;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>Mathematics - Form III</header>
+
+    <section>
+        <h2>Topics Covered</h2>
+
+        <div class="topic">
+            <h3>Logarithms and Indices</h3>
+            <p>Use logarithms and indices in computation and solving problems involving powers and roots.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Logarithms and Indices')">💬 View
+                Comments</button>
+            <a href="../notes/logarithms-and-indices.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Surds</h3>
+            <p>Simplify, rationalize denominators, and solve problems involving surds.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Surds')">💬 View Comments</button>
+            <a href="../notes/surds.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Compound Interest and Depreciation</h3>
+            <p>Calculate compound interest and depreciation using given rates and time periods.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Compound Interest and Depreciation')">💬 View
+                Comments</button>
+            <a href="../notes/compound-interest-and-depreciation.pdf" class="btn" target="_blank">📖 View Notes
+                (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Quadratic Equations</h3>
+            <p>Solve quadratic equations by factorization, completing the square, and formula methods.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Quadratic Equations')">💬 View Comments</button>
+            <a href="../notes/quadratic-equations.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Simultaneous Equations</h3>
+            <p>Solve simultaneous equations involving linear and quadratic expressions.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Simultaneous Equations')">💬 View
+                Comments</button>
+            <a href="../notes/simultaneous-equations.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Trigonometry II</h3>
+            <p>Use sine and cosine rules, area of triangles, bearings, and solving real-life problems.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Trigonometry II')">💬 View Comments</button>
+            <a href="../notes/trigonometry-ii.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Coordinate Geometry</h3>
+            <p>Find distance, midpoints, gradients, and equations of lines using coordinates.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Coordinate Geometry')">💬 View Comments</button>
+            <a href="../notes/coordinate-geometry.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Statistics II</h3>
+            <p>Draw and interpret cumulative frequency curves, calculate percentiles, and quartiles.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Statistics II')">💬 View Comments</button>
+            <a href="../notes/statistics-ii.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Vectors II</h3>
+            <p>Apply vector addition, subtraction, and scalar multiplication in 2D and 3D geometry.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Vectors II')">💬 View Comments</button>
+            <a href="../notes/vectors-ii.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="topic">
+            <h3>Matrices</h3>
+            <p>Define, add, subtract, and multiply matrices; find determinants and inverses; solve equations.</p>
+            <button class="comment-btn" onclick="toggleCommentsSidebar('Matrices')">💬 View Comments</button>
+            <a href="../notes/matrices.pdf" class="btn" target="_blank">📖 View Notes (PDF)</a>
+        </div>
+
+        <div class="nav-btns">
+            <a href="../subjects/math.html" class="btn">⬅ Back to Mathematics</a>
+            <a href="../math-forms/mathform2.html" class="btn">⬅ Back to Form 2</a>
+            <a href="../math-forms/mathform4.html" class="btn">To Form 4 ➡</a>
+        </div>
+    </section>
+
+    <!-- 💬 Comments Sidebar -->
+    <div id="commentsSidebar" class="comment-sidebar">
+        <div class="sidebar-header">
+            <h3 id="topicTitle">Comments</h3>
+            <button class="close-btn" onclick="toggleCommentsSidebar()">✖</button>
+        </div>
+        <div id="commentsList" class="comments-list"></div>
+        <div class="comment-input">
+            <textarea id="commentText" placeholder="Write a comment..."></textarea>
+            <button onclick="postComment()">Post</button>
+        </div>
+    </div>
+
+    <script type="module" src="../js/comment.js"></script>
+</body>
+
+</html>

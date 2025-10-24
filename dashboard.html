@@ -5,9 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduConnect</title>
+
+    <!-- Existing site CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Forum Sidebar CSS -->
+    <link rel="stylesheet" href="forum.css">
+
     <style>
-        /* Sidebar base */
+        /* ========== existing sidebar / layout styles (unchanged) ========== */
         .sidebar {
             width: 250px;
             background-color: #fff;
@@ -18,10 +24,10 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
+            transition: all .3s ease;
             z-index: 1000;
         }
-    
+
         .sidebar .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -29,39 +35,38 @@
             color: #004aad;
             text-align: center;
         }
-    
+
         .sidebar .nav-links {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-    
+
         .sidebar .nav-links a {
             display: flex;
             align-items: center;
             padding: 12px 20px;
             color: #004aad;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: background .3s;
         }
-    
+
         .sidebar .nav-links a span:first-child {
             margin-right: 10px;
             font-size: 1.2rem;
         }
-    
+
         .sidebar .nav-links a:hover {
             background-color: #f0f4ff;
         }
-    
-        /* Sidebar profile */
+
         .sidebar .sidebar-profile {
             display: flex;
             align-items: center;
             padding: 15px 20px;
             cursor: pointer;
         }
-    
+
         .sidebar .sidebar-profile img {
             width: 40px;
             height: 40px;
@@ -69,39 +74,37 @@
             object-fit: cover;
             margin-right: 10px;
         }
-    
+
         .sidebar .sidebar-profile span {
             font-weight: bold;
             color: #004aad;
         }
-    
-        /* Collapsed Sidebar (for desktop) */
+
         .sidebar.collapsed {
             width: 70px;
             overflow: hidden;
         }
-    
+
         .sidebar.collapsed .logo {
             font-size: 0;
         }
-    
+
         .sidebar.collapsed .nav-links a {
             justify-content: center;
             font-size: 1.2rem;
             padding: 14px 0;
         }
-    
+
         .sidebar.collapsed .nav-links a span:nth-child(2) {
             display: none;
         }
-    
-        /* Sidebar dropdown */
+
         #profile-dropdown {
             display: none;
             flex-direction: column;
             margin-top: 5px;
         }
-    
+
         #profile-dropdown button {
             background: none;
             border: none;
@@ -110,35 +113,30 @@
             cursor: pointer;
             color: #004aad;
         }
-    
-        /* Footer always at bottom */
+
         .sidebar footer {
             margin-top: auto;
             padding: 10px 20px;
-            font-size: 0.85rem;
+            font-size: .85rem;
             color: #555;
         }
-    
-        /* Mobile responsiveness — fixed version */
-        @media screen and (max-width: 768px) {
+
+        @media screen and (max-width:768px) {
             .sidebar {
                 left: -250px;
-                /* Hidden by default on mobile */
                 width: 250px;
                 position: fixed;
                 top: 0;
                 height: 100%;
                 background-color: #fff;
-                transition: left 0.3s ease;
+                transition: left .3s ease;
                 z-index: 2000;
             }
-    
-            /* When toggled open */
+
             .sidebar.active {
                 left: 0;
             }
-    
-            /* Keep toggle button visible on top */
+
             .toggle-btn {
                 display: block;
                 position: fixed;
@@ -153,38 +151,33 @@
                 padding: 5px 10px;
                 cursor: pointer;
             }
-    
+
             main {
                 margin-left: 0;
-                transition: filter 0.3s ease;
+                transition: filter .3s ease;
             }
-    
-            /* Optional: blur main content when sidebar is open */
+
             main.blur {
                 filter: blur(2px);
             }
         }
     </style>
-
 </head>
 
 <body>
-    <!-- Sidebar -->
+    <!-- ========== existing sidebar ========== -->
     <aside class="sidebar">
         <button class="toggle-btn">☰</button>
         <div>
             <div class="logo">EduConnect</div>
-
-            <!-- Sidebar Profile -->
             <div class="sidebar-profile">
                 <img id="sidebar-profile-pic" src="https://via.placeholder.com/50" alt="Profile Photo">
-                <span id="sidebar-username">User</span>
+                <span id="sidebar-username">user</span>
             </div>
             <div id="profile-dropdown">
                 <button onclick="window.location.href='profile.html'">View Profile</button>
                 <button id="logout-btn">Logout</button>
             </div>
-
             <nav class="nav-links">
                 <a href="index.html"><span>🏠</span> <span>Home</span></a>
                 <a href="dashboard.html"><span>📚</span> <span>Subjects</span></a>
@@ -192,12 +185,10 @@
                 <a href="about.html"><span>ℹ️</span> <span>About</span></a>
             </nav>
         </div>
-        <footer>
-            © 2025 EduConnect. All rights reserved.
-        </footer>
+        <footer>© 2025 EduConnect. All rights reserved.</footer>
     </aside>
 
-    <!-- Main Content -->
+    <!-- ========== Main content ========== -->
     <main>
         <header>
             <h1>EduConnect</h1>
@@ -213,21 +204,12 @@
         </section>
 
         <section class="subjects" id="subjects">
-            <!-- Subjects Cards -->
             <div class="card">
                 <img src="images/math.jpeg" alt="Mathematics">
                 <div class="card-content">
                     <h3>Mathematics</h3>
                     <p>Explore numbers, equations, and real-world problem-solving techniques.</p>
                     <a href="subjects/math.html" class="start-btn">Start Learning</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/Albert-Einstein.jpg" alt="Science">
-                <div class="card-content">
-                    <h3>Science</h3>
-                    <p>Discover how the universe works — from atoms to galaxies.</p>
-                    <a href="subjects/science.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
             <div class="card">
@@ -254,107 +236,111 @@
                     <a href="subjects/computer.html" class="start-btn">Start Learning</a>
                 </div>
             </div>
+            <div class="card">
+                <img src="images/chemistry.jpg" alt="Science">
+                <div class="card-content">
+                    <h3>Chemistry</h3>
+                    <p>Discover how the universe works — from atoms to galaxies.</p>
+                    <a href="subjects/chemistry.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/biology.jpeg" alt="Science">
+                <div class="card-content">
+                    <h3>Biology</h3>
+                    <p>Discover how the universe works — from atoms to galaxies.</p>
+                    <a href="subjects/biology.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/physics.webp" alt="Science">
+                <div class="card-content">
+                    <h3>Physics</h3>
+                    <p>Discover how the universe works — from atoms to galaxies.</p>
+                    <a href="subjects/physics.html" class="start-btn">Start Learning</a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- JS -->
-    <script>
-        // Live search
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-        const noResults = document.getElementById('noResults');
+    <!-- Floating Forum Button -->
+    <button id="forumBtn" class="forum-icon" title="Open Forum">💬</button>
+    
+    <!-- Forum Sidebar -->
+    <div id="forumSidebar" class="forum-sidebar">
+        <div class="forum-header">
+            <h3>Community Forum</h3>
+            <button class="close-btn" id="closeForum">✖</button>
+        </div>
+    
+        <div id="forumPosts" class="forum-body">
+            <p>Loading posts...</p>
+        </div>
+    
+        <div class="forum-input">
+            <textarea id="newPostMessage" placeholder="Ask a question or share something..."></textarea>
+            <button id="postForumBtn">Post</button>
+        </div>
+    </div>
 
-        searchInput.addEventListener('input', () => {
-            const searchText = searchInput.value.toLowerCase();
-            let anyVisible = false;
+    
+    <!-- Forum Script -->
+    <script type="module" src="js/forum.js"></script>
+<script type="module">
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
+    // Wait for DOM to fully load
+    document.addEventListener("DOMContentLoaded", () => {
+        const auth = getAuth();
 
-                if (title.includes(searchText) || desc.includes(searchText)) {
-                    card.style.display = 'block';
-                    anyVisible = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            noResults.style.display = anyVisible ? 'none' : 'block';
-        });
-
-        // Sidebar toggle
-            const toggleBtn = document.querySelector('.toggle-btn');
-            const sidebar = document.querySelector('.sidebar');
-            const main = document.querySelector('main');
-
-            toggleBtn.addEventListener('click', () => {
-                if (window.innerWidth > 768) {
-                    sidebar.classList.toggle('collapsed');
-                } else {
-                    sidebar.classList.toggle('active');
-                    main.classList.toggle('blur'); // blur main when sidebar open
-                }
-            });
-    </script>
-
-    <!-- Firebase Sidebar Profile -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBwgRzr0A8qR2lzOlLP_B1mCiJ90IS2Nms",
-            authDomain: "educonnect-2b680.firebaseapp.com",
-            projectId: "educonnect-2b680",
-            storageBucket: "educonnect-2b680.appspot.com",
-            messagingSenderId: "438989414011",
-            appId: "1:438989414011:web:c21fe944e6da56094b0cde",
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        const sidebarPic = document.getElementById("sidebar-profile-pic");
-        const sidebarUsername = document.getElementById("sidebar-username");
-        const sidebarProfile = document.querySelector('.sidebar-profile');
+        const usernameEl = document.getElementById("sidebar-username");
+        const profilePicEl = document.getElementById("sidebar-profile-pic");
+        const sidebarProfile = document.querySelector(".sidebar-profile");
         const profileDropdown = document.getElementById("profile-dropdown");
         const logoutBtn = document.getElementById("logout-btn");
 
+        if (!usernameEl || !profilePicEl || !sidebarProfile || !profileDropdown) {
+            console.warn("⚠️ Profile elements not found in DOM.");
+            return;
+        }
+
+        // ✅ Show logged-in user data
         onAuthStateChanged(auth, (user) => {
-            if (!user) return window.location.href = "login.html";
-
-            const userRef = doc(db, "users", user.uid);
-
-            onSnapshot(userRef, (snap) => {
-                if (snap.exists()) {
-                    const data = snap.data();
-                    sidebarUsername.textContent = data.username || user.email;
-                    sidebarPic.src = data.photoURL || "https://via.placeholder.com/50";
-                }
-            });
-        });
-
-        // Toggle dropdown
-        sidebarProfile.addEventListener("click", () => {
-            profileDropdown.style.display = profileDropdown.style.display === "flex" ? "none" : "flex";
-        });
-
-        // Close dropdown if clicked outside
-        window.addEventListener("click", (e) => {
-            if (!sidebarProfile.contains(e.target) && !profileDropdown.contains(e.target)) {
-                profileDropdown.style.display = "none";
+            if (user) {
+                console.log("✅ Logged in as:", user.displayName || user.email);
+                usernameEl.textContent = user.displayName || user.email || "User";
+                profilePicEl.src = user.photoURL || "https://via.placeholder.com/50";
+            } else {
+                console.warn("❌ No user logged in — redirecting...");
+                window.location.href = "login.html";
             }
         });
 
-        // Logout
-        logoutBtn.addEventListener("click", async () => {
-            await signOut(auth);
-            window.location.href = "login.html";
+        // ✅ Toggle dropdown when clicking username/photo
+        sidebarProfile.addEventListener("click", (e) => {
+            e.stopPropagation(); // prevent click from bubbling
+            profileDropdown.classList.toggle("show");
         });
-    </script>
+
+        // ✅ Close dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".sidebar-profile") && !e.target.closest("#profile-dropdown")) {
+                profileDropdown.classList.remove("show");
+            }
+        });
+
+        // ✅ Logout handler
+        logoutBtn.addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "login.html";
+            } catch (error) {
+                console.error("Logout error:", error);
+            }
+        });
+    });
+</script>
+
 
 </body>
 
